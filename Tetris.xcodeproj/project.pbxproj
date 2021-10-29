@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E00A2B027285F78002424AF /* InfoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E00A2AF27285F78002424AF /* InfoGameView.swift */; };
+		2E00A2B227286FED002424AF /* ChronoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E00A2B127286FED002424AF /* ChronoModel.swift */; };
+		2E0BDC88272432380063F0EB /* PiecePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC87272432380063F0EB /* PiecePreview.swift */; };
+		2E0BDC8A272453720063F0EB /* MatchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC89272453720063F0EB /* MatchDetailView.swift */; };
+		2E0BDC8C2724539E0063F0EB /* InfoSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC8B2724539E0063F0EB /* InfoSquareView.swift */; };
+		2E0BDC8E272456BA0063F0EB /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC8D272456BA0063F0EB /* ScoreModel.swift */; };
+		2E0BDC9027245F180063F0EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC8F27245F180063F0EB /* HomeView.swift */; };
+		2E15FB6427231C2100C0FB5B /* TetrisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E15FB6327231C2100C0FB5B /* TetrisModel.swift */; };
+		2E438637272C55F5009C0475 /* TimerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E438636272C55F5009C0475 /* TimerTextView.swift */; };
+		2E45E78127075B7400072A88 /* TetrisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45E78027075B7400072A88 /* TetrisApp.swift */; };
+		2E45E78327075B7400072A88 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45E78227075B7400072A88 /* GameView.swift */; };
+		2E45E78527075B7500072A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E45E78427075B7500072A88 /* Assets.xcassets */; };
+		2E45E78827075B7500072A88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E45E78727075B7500072A88 /* Preview Assets.xcassets */; };
+		2E45E78F2707658F00072A88 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45E78E2707658F00072A88 /* ViewModel.swift */; };
+		2E9530412724BFEE00A36684 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530402724BFEE00A36684 /* ControlsView.swift */; };
+		2E9530492725677700A36684 /* PauseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530482725677700A36684 /* PauseButtonView.swift */; };
+		2E95304D27256D0600A36684 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95304C27256D0600A36684 /* CustomAlertView.swift */; };
+		2E95305927257F9C00A36684 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95305827257F9C00A36684 /* CountdownView.swift */; };
+		2E95305E272596A200A36684 /* AlertChoiceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95305D272596A200A36684 /* AlertChoiceButtonView.swift */; };
+		2E953060272596D600A36684 /* AlertWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95305F272596D600A36684 /* AlertWindowView.swift */; };
+		2E95306627259CEF00A36684 /* HomeMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */; };
+		2E9530682725A0C900A36684 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530672725A0C900A36684 /* LevelModel.swift */; };
+		2E95306A2725BCFD00A36684 /* HighScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530692725BCFD00A36684 /* HighScoreView.swift */; };
+		2E95306C2725C4CF00A36684 /* GoBackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95306B2725C4CF00A36684 /* GoBackButtonView.swift */; };
+		2EAB667727292F3A005542B6 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB667627292F3A005542B6 /* SquareView.swift */; };
+		2EDBC5272720A4C9001D5992 /* DirectionalPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5262720A4C9001D5992 /* DirectionalPadView.swift */; };
+		2EDBC5292720AB7A001D5992 /* PieceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5282720AB7A001D5992 /* PieceModel.swift */; };
+		2EDBC52B2720AB89001D5992 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC52A2720AB89001D5992 /* ColorData.swift */; };
+		2EDBC52D2720AC0C001D5992 /* PieceOrientationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC52C2720AC0C001D5992 /* PieceOrientationModel.swift */; };
+		2EDBC52F2720AC25001D5992 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC52E2720AC25001D5992 /* Extensions.swift */; };
+		2EDBC5312720B023001D5992 /* RotateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5302720B023001D5992 /* RotateButtonView.swift */; };
+		2EDBC5332720B357001D5992 /* TetrisBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5322720B357001D5992 /* TetrisBoardView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E00A2AF27285F78002424AF /* InfoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGameView.swift; sourceTree = "<group>"; };
+		2E00A2B127286FED002424AF /* ChronoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoModel.swift; sourceTree = "<group>"; };
+		2E0BDC87272432380063F0EB /* PiecePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecePreview.swift; sourceTree = "<group>"; };
+		2E0BDC89272453720063F0EB /* MatchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailView.swift; sourceTree = "<group>"; };
+		2E0BDC8B2724539E0063F0EB /* InfoSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSquareView.swift; sourceTree = "<group>"; };
+		2E0BDC8D272456BA0063F0EB /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
+		2E0BDC8F27245F180063F0EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2E15FB6327231C2100C0FB5B /* TetrisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisModel.swift; sourceTree = "<group>"; };
+		2E438636272C55F5009C0475 /* TimerTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTextView.swift; sourceTree = "<group>"; };
+		2E45E77D27075B7400072A88 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E45E78027075B7400072A88 /* TetrisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisApp.swift; sourceTree = "<group>"; };
+		2E45E78227075B7400072A88 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		2E45E78427075B7500072A88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E45E78727075B7500072A88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2E45E78E2707658F00072A88 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		2E8812332726072C00D304BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2E9530402724BFEE00A36684 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
+		2E9530482725677700A36684 /* PauseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonView.swift; sourceTree = "<group>"; };
+		2E95304C27256D0600A36684 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		2E95305827257F9C00A36684 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		2E95305D272596A200A36684 /* AlertChoiceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertChoiceButtonView.swift; sourceTree = "<group>"; };
+		2E95305F272596D600A36684 /* AlertWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWindowView.swift; sourceTree = "<group>"; };
+		2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuButtonView.swift; sourceTree = "<group>"; };
+		2E9530672725A0C900A36684 /* LevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelModel.swift; sourceTree = "<group>"; };
+		2E9530692725BCFD00A36684 /* HighScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreView.swift; sourceTree = "<group>"; };
+		2E95306B2725C4CF00A36684 /* GoBackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackButtonView.swift; sourceTree = "<group>"; };
+		2EAB667627292F3A005542B6 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+		2EDBC5262720A4C9001D5992 /* DirectionalPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPadView.swift; sourceTree = "<group>"; };
+		2EDBC5282720AB7A001D5992 /* PieceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceModel.swift; sourceTree = "<group>"; };
+		2EDBC52A2720AB89001D5992 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
+		2EDBC52C2720AC0C001D5992 /* PieceOrientationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOrientationModel.swift; sourceTree = "<group>"; };
+		2EDBC52E2720AC25001D5992 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2EDBC5302720B023001D5992 /* RotateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateButtonView.swift; sourceTree = "<group>"; };
+		2EDBC5322720B357001D5992 /* TetrisBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisBoardView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E45E77A27075B7400072A88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E0BDC9B27248D0E0063F0EB /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				2E9530402724BFEE00A36684 /* ControlsView.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		2E0BDC9C27248D460063F0EB /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				2E95305127257E0900A36684 /* Board */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		2E15FB5F27231BC000C0FB5B /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E45E78E2707658F00072A88 /* ViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		2E15FB6027231BCA00C0FB5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E95305527257E5800A36684 /* Game */,
+				2E95305727257E7600A36684 /* Extensions */,
+				2E95305627257E6D00A36684 /* Data */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2E15FB6127231BDA00C0FB5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E95305427257E3D00A36684 /* Mains */,
+				2E95305C2725966E00A36684 /* Buttons */,
+				2E95305227257E2400A36684 /* Alerts */,
+				2E0BDC9B27248D0E0063F0EB /* Controls */,
+				2E0BDC9C27248D460063F0EB /* Game */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2E45E77427075B7400072A88 = {
+			isa = PBXGroup;
+			children = (
+				2E45E77F27075B7400072A88 /* Tetris */,
+				2E45E77E27075B7400072A88 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2E45E77E27075B7400072A88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E45E77D27075B7400072A88 /* Tetris.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E45E77F27075B7400072A88 /* Tetris */ = {
+			isa = PBXGroup;
+			children = (
+				2E8812332726072C00D304BB /* Info.plist */,
+				2E45E78027075B7400072A88 /* TetrisApp.swift */,
+				2E15FB6127231BDA00C0FB5B /* Views */,
+				2E15FB5F27231BC000C0FB5B /* View Model */,
+				2E15FB6027231BCA00C0FB5B /* Models */,
+				2E45E78427075B7500072A88 /* Assets.xcassets */,
+				2E45E78627075B7500072A88 /* Preview Content */,
+			);
+			path = Tetris;
+			sourceTree = "<group>";
+		};
+		2E45E78627075B7500072A88 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2E45E78727075B7500072A88 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2E95305127257E0900A36684 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				2EDBC5322720B357001D5992 /* TetrisBoardView.swift */,
+				2EAB667627292F3A005542B6 /* SquareView.swift */,
+				2E0BDC87272432380063F0EB /* PiecePreview.swift */,
+				2E0BDC8B2724539E0063F0EB /* InfoSquareView.swift */,
+				2E00A2AF27285F78002424AF /* InfoGameView.swift */,
+				2E0BDC89272453720063F0EB /* MatchDetailView.swift */,
+				2E438636272C55F5009C0475 /* TimerTextView.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		2E95305227257E2400A36684 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				2E95304C27256D0600A36684 /* CustomAlertView.swift */,
+				2E95305827257F9C00A36684 /* CountdownView.swift */,
+				2E95305F272596D600A36684 /* AlertWindowView.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		2E95305427257E3D00A36684 /* Mains */ = {
+			isa = PBXGroup;
+			children = (
+				2E45E78227075B7400072A88 /* GameView.swift */,
+				2E9530692725BCFD00A36684 /* HighScoreView.swift */,
+				2E0BDC8F27245F180063F0EB /* HomeView.swift */,
+			);
+			path = Mains;
+			sourceTree = "<group>";
+		};
+		2E95305527257E5800A36684 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				2E15FB6327231C2100C0FB5B /* TetrisModel.swift */,
+				2E0BDC8D272456BA0063F0EB /* ScoreModel.swift */,
+				2EDBC52C2720AC0C001D5992 /* PieceOrientationModel.swift */,
+				2EDBC5282720AB7A001D5992 /* PieceModel.swift */,
+				2E9530672725A0C900A36684 /* LevelModel.swift */,
+				2E00A2B127286FED002424AF /* ChronoModel.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		2E95305627257E6D00A36684 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2EDBC52A2720AB89001D5992 /* ColorData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2E95305727257E7600A36684 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2EDBC52E2720AC25001D5992 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E95305C2725966E00A36684 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2E95306427259CD900A36684 /* Mains */,
+				2E9530612725973A00A36684 /* Game */,
+				2E9530622725975500A36684 /* Controls */,
+				2E9530632725975F00A36684 /* Alerts */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		2E9530612725973A00A36684 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				2E9530482725677700A36684 /* PauseButtonView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		2E9530622725975500A36684 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				2EDBC5262720A4C9001D5992 /* DirectionalPadView.swift */,
+				2EDBC5302720B023001D5992 /* RotateButtonView.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		2E9530632725975F00A36684 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				2E95305D272596A200A36684 /* AlertChoiceButtonView.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		2E95306427259CD900A36684 /* Mains */ = {
+			isa = PBXGroup;
+			children = (
+				2E95306B2725C4CF00A36684 /* GoBackButtonView.swift */,
+				2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */,
+			);
+			path = Mains;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E45E77C27075B7400072A88 /* Tetris */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E45E78B27075B7500072A88 /* Build configuration list for PBXNativeTarget "Tetris" */;
+			buildPhases = (
+				2E45E77927075B7400072A88 /* Sources */,
+				2E45E77A27075B7400072A88 /* Frameworks */,
+				2E45E77B27075B7400072A88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tetris;
+			productName = Tetris;
+			productReference = 2E45E77D27075B7400072A88 /* Tetris.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E45E77527075B7400072A88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					2E45E77C27075B7400072A88 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 2E45E77827075B7400072A88 /* Build configuration list for PBXProject "Tetris" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E45E77427075B7400072A88;
+			productRefGroup = 2E45E77E27075B7400072A88 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E45E77C27075B7400072A88 /* Tetris */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E45E77B27075B7400072A88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E45E78827075B7500072A88 /* Preview Assets.xcassets in Resources */,
+				2E45E78527075B7500072A88 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E45E77927075B7400072A88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E9530412724BFEE00A36684 /* ControlsView.swift in Sources */,
+				2E95304D27256D0600A36684 /* CustomAlertView.swift in Sources */,
+				2EDBC5272720A4C9001D5992 /* DirectionalPadView.swift in Sources */,
+				2EDBC52F2720AC25001D5992 /* Extensions.swift in Sources */,
+				2EDBC52D2720AC0C001D5992 /* PieceOrientationModel.swift in Sources */,
+				2E95306627259CEF00A36684 /* HomeMenuButtonView.swift in Sources */,
+				2E00A2B027285F78002424AF /* InfoGameView.swift in Sources */,
+				2E95306C2725C4CF00A36684 /* GoBackButtonView.swift in Sources */,
+				2E95305927257F9C00A36684 /* CountdownView.swift in Sources */,
+				2EDBC5312720B023001D5992 /* RotateButtonView.swift in Sources */,
+				2E95306A2725BCFD00A36684 /* HighScoreView.swift in Sources */,
+				2EAB667727292F3A005542B6 /* SquareView.swift in Sources */,
+				2E15FB6427231C2100C0FB5B /* TetrisModel.swift in Sources */,
+				2E953060272596D600A36684 /* AlertWindowView.swift in Sources */,
+				2E0BDC9027245F180063F0EB /* HomeView.swift in Sources */,
+				2E0BDC8C2724539E0063F0EB /* InfoSquareView.swift in Sources */,
+				2E438637272C55F5009C0475 /* TimerTextView.swift in Sources */,
+				2EDBC5292720AB7A001D5992 /* PieceModel.swift in Sources */,
+				2E00A2B227286FED002424AF /* ChronoModel.swift in Sources */,
+				2E9530682725A0C900A36684 /* LevelModel.swift in Sources */,
+				2E95305E272596A200A36684 /* AlertChoiceButtonView.swift in Sources */,
+				2E9530492725677700A36684 /* PauseButtonView.swift in Sources */,
+				2E0BDC8E272456BA0063F0EB /* ScoreModel.swift in Sources */,
+				2EDBC52B2720AB89001D5992 /* ColorData.swift in Sources */,
+				2E45E78327075B7400072A88 /* GameView.swift in Sources */,
+				2E45E78F2707658F00072A88 /* ViewModel.swift in Sources */,
+				2E45E78127075B7400072A88 /* TetrisApp.swift in Sources */,
+				2EDBC5332720B357001D5992 /* TetrisBoardView.swift in Sources */,
+				2E0BDC88272432380063F0EB /* PiecePreview.swift in Sources */,
+				2E0BDC8A272453720063F0EB /* MatchDetailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2E45E78927075B7500072A88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2E45E78A27075B7500072A88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E45E78C27075B7500072A88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tetris/Preview Content\"";
+				DEVELOPMENT_TEAM = Q6DV6C6352;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tetris/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tetris;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yann.Tetris;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2E45E78D27075B7500072A88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tetris/Preview Content\"";
+				DEVELOPMENT_TEAM = Q6DV6C6352;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tetris/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tetris;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yann.Tetris;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E45E77827075B7400072A88 /* Build configuration list for PBXProject "Tetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E45E78927075B7500072A88 /* Debug */,
+				2E45E78A27075B7500072A88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E45E78B27075B7500072A88 /* Build configuration list for PBXNativeTarget "Tetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E45E78C27075B7500072A88 /* Debug */,
+				2E45E78D27075B7500072A88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E45E77527075B7400072A88 /* Project object */;
+}
