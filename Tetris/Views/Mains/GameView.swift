@@ -14,23 +14,7 @@ struct GameView: View {
             Background
             Color.white.opacity(vm.isAnimatingBackground ? 1 : 0)
                 .ignoresSafeArea()
-            GeometryReader { geo in
-                VStack(spacing: 10) {
-                    InfoGame
-                    TetrisBoardView(width: geo.size.width * 0.1, height: geo.size.width, tetris: vm.tetris, mode: vm.tetrisMode, chrono: vm.chrono)
-                        .overlay(
-                            HStack {
-                                TimerTextView(tetrisMode: vm.tetrisMode, chrono: vm.chrono)
-                                PiecePreview(piece: vm.tetris.nextPiece, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
-                                PauseButtonView(isPresenting: $vm.isAlertShowing, cancelTimer: vm.resetTimer, cancelChronoTimer: vm.resetChronoTimer, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
-                            }
-                                .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.7, alignment: .top)
-                        )
-                    
-                    ControlsView(movingLeft: vm.movePieceLeft, movingRight: vm.movePieceRight, speedUp: vm.speedUpTimer, rotatePiece: vm.rotatePiece, cancellables: vm.gameCancellables, width: geo.size.width, height: geo.size.height * 0.15)
-                }
-            }
-            .padding()
+            Board
             Alert
             Countdown
         }
@@ -56,6 +40,25 @@ extension GameView {
     }
     var InfoGame: some View {
         InfoGameView(level: vm.tetris.level, score: vm.tetris.score, lines: vm.tetris.lines)
+    }
+    var Board: some View {
+        GeometryReader { geo in
+            VStack(spacing: 10) {
+                InfoGame
+                TetrisBoardView(width: geo.size.width * 0.1, height: geo.size.width, tetris: vm.tetris, mode: vm.tetrisMode, chrono: vm.chrono)
+                    .overlay(
+                        HStack {
+                            TimerTextView(tetrisMode: vm.tetrisMode, chrono: vm.chrono)
+                            PiecePreview(piece: vm.tetris.nextPiece, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
+                            PauseButtonView(isPresenting: $vm.isAlertShowing, cancelTimer: vm.resetTimer, cancelChronoTimer: vm.resetChronoTimer, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
+                        }
+                            .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.7, alignment: .top)
+                    )
+                
+                ControlsView(movingLeft: vm.movePieceLeft, movingRight: vm.movePieceRight, speedUp: vm.speedUpTimer, rotatePiece: vm.rotatePiece, cancellables: vm.gameCancellables, width: geo.size.width, height: geo.size.height * 0.15)
+            }
+        }
+        .padding()
     }
     var Alert: some View {
         CustomAlertView(isPresenting: $vm.isAlertShowing, score: vm.tetris.score, isGameLost: vm.tetris.isGameLost(), isTimedOut: vm.isTimedOut(), startTimer: vm.startTimer, startChronoTimer: vm.startChronoTimer, newGame: vm.startNewGame)

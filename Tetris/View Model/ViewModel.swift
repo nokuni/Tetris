@@ -33,9 +33,7 @@ final class TetrisViewModel: ObservableObject {
     // MARK: - Board Timer
     
     // Game speed
-    func getGameSpeed() -> Double {
-        return speeds[tetris.level]
-    }
+    func getGameSpeed() -> Double { speeds[tetris.level] }
     
     // Start a timer for the board.
     func startTimer() {
@@ -59,9 +57,6 @@ final class TetrisViewModel: ObservableObject {
             generateRandomNewPiece()
             generateNextRandomNewPiece()
             getPrevisualisationPiece()
-            //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            //                self.getPrevisualisationPiece()
-            //            }
             if tetris.isGameLost() { endGame() }
         }
     }

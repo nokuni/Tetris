@@ -120,7 +120,6 @@
 			children = (
 				2E95305527257E5800A36684 /* Game */,
 				2E95305727257E7600A36684 /* Extensions */,
-				2E95305627257E6D00A36684 /* Data */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,17 +223,10 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		2E95305627257E6D00A36684 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				2EDBC52A2720AB89001D5992 /* ColorData.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		2E95305727257E7600A36684 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2EDBC52A2720AB89001D5992 /* ColorData.swift */,
 				2EDBC52E2720AC25001D5992 /* Extensions.swift */,
 			);
 			path = Extensions;
