@@ -13,18 +13,25 @@ struct InfoGameView: View {
     var lines: Int
     var body: some View {
         HStack {
-            Text("Level \(level)")
-                .fontWeight(.heavy)
-                .frame(maxWidth: .infinity)
+            VStack {
+                Text("Level")
+                Text("\(level)")
+                    .fontWeight(.heavy)
+            }
+            .frame(maxWidth: .infinity)
             Text("\(score)")
                 .fontWeight(.heavy)
+                .font(.title)
                 .frame(maxWidth: .infinity)
-            Text("Lines \(lines)")
-                .fontWeight(.heavy)
-                .frame(maxWidth: .infinity)
+            VStack {
+                Text("Lines")
+                Text("\(lines)")
+                    .fontWeight(.heavy)
+            }
+            .frame(maxWidth: .infinity)
         }
+        .font(Font.title3.bold())
         .foregroundColor(.black)
-        .font(.system(.title3, design: .monospaced))
     }
 }
 

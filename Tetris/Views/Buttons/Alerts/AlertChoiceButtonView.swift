@@ -23,17 +23,13 @@ struct AlertChoiceButtonView: View {
                 .foregroundColor(.theme.background)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.black, lineWidth: 5)
-                        .background(backgroundColor)
-                )
+                .background(backgroundColor)
         }
     }
 }
 
 struct AlertChoiceButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertChoiceButtonView(text: "CONTINUE", backgroundColor: .yellow)
+        AlertChoiceButtonView(text: "CONTINUE", backgroundColor: .blue)
     }
 }

@@ -19,18 +19,18 @@ struct AlertWindowView: View {
     var newGame: (() -> Void)?
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 5)
-                .stroke(Color.black, lineWidth: 5)
-                .frame(maxWidth: .infinity, maxHeight: 250)
-                .background(
+            Rectangle()
+                .foregroundColor(
                     Color.theme.background
                 )
+                .frame(maxWidth: .infinity, maxHeight: 250)
+                .shadow(color: .black, radius: 0, x: 3, y: 3)
             VStack(spacing: 20) {
                 if isGameLost || isTimedOut {
                     Text("Score: \(score)")
                         .foregroundColor(.theme.accent)
                 } else {
-                    AlertChoiceButtonView(text: "CONTINUE", backgroundColor: .yellow, action: dismissAlert, secondAction: startTimer, thirdAction: startChronoTimer)
+                    AlertChoiceButtonView(text: "CONTINUE", backgroundColor: .blue, action: dismissAlert, secondAction: startTimer, thirdAction: startChronoTimer)
                 }
                 AlertChoiceButtonView(text: "NEW GAME", backgroundColor: .theme.accent, action: dismissAlert, secondAction: newGame)
                 AlertChoiceButtonView(text: "QUIT", backgroundColor: .coral, action: goBack)

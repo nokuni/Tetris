@@ -18,17 +18,17 @@ struct ControlsView: View {
     var height: CGFloat
     var body: some View {
         HStack {
-            DirectionalPadView(movingLeft: movingLeft, movingRight: movingRight, speedUp: speedUp, cancellables: cancellables)
-            Spacer()
-            RotateButtonView(rotatePiece: rotatePiece, cancellables: cancellables)
+            KeyPadView(action: movingLeft, image: "arrowtriangle.backward.fill", height: height * 0.5, cancellables: cancellables)
+            KeyPadView(action: speedUp, image: "arrowtriangle.down.fill", height: height * 0.5, cancellables: cancellables)
+            KeyPadView(action: movingRight, image: "arrowtriangle.forward.fill", height: height * 0.5, cancellables: cancellables)
+            ActionButtonView(image: "arrow.clockwise", action: rotatePiece, cancellables: cancellables)
         }
         .frame(maxWidth: width, maxHeight: height)
-        .padding(.horizontal)
     }
 }
 
 struct ControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        ControlsView(cancellables: [], width: 300, height: 150)
+        ControlsView(cancellables: [], width: 300, height: 50)
     }
 }

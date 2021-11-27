@@ -11,16 +11,19 @@
 		2E00A2B227286FED002424AF /* ChronoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E00A2B127286FED002424AF /* ChronoModel.swift */; };
 		2E0BDC88272432380063F0EB /* PiecePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC87272432380063F0EB /* PiecePreview.swift */; };
 		2E0BDC8A272453720063F0EB /* MatchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC89272453720063F0EB /* MatchDetailView.swift */; };
-		2E0BDC8C2724539E0063F0EB /* InfoSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC8B2724539E0063F0EB /* InfoSquareView.swift */; };
 		2E0BDC8E272456BA0063F0EB /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC8D272456BA0063F0EB /* ScoreModel.swift */; };
 		2E0BDC9027245F180063F0EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BDC8F27245F180063F0EB /* HomeView.swift */; };
 		2E15FB6427231C2100C0FB5B /* TetrisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E15FB6327231C2100C0FB5B /* TetrisModel.swift */; };
+		2E1BE75527522656003C36E3 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BE75427522656003C36E3 /* GameModel.swift */; };
+		2E1BE757275226F3003C36E3 /* HighscoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BE756275226F3003C36E3 /* HighscoreModel.swift */; };
 		2E438637272C55F5009C0475 /* TimerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E438636272C55F5009C0475 /* TimerTextView.swift */; };
 		2E45E78127075B7400072A88 /* TetrisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45E78027075B7400072A88 /* TetrisApp.swift */; };
 		2E45E78327075B7400072A88 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45E78227075B7400072A88 /* GameView.swift */; };
 		2E45E78527075B7500072A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E45E78427075B7500072A88 /* Assets.xcassets */; };
 		2E45E78827075B7500072A88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E45E78727075B7500072A88 /* Preview Assets.xcassets */; };
 		2E45E78F2707658F00072A88 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E45E78E2707658F00072A88 /* ViewModel.swift */; };
+		2E5282EB275257F4001B3C3A /* KeyPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282EA275257F4001B3C3A /* KeyPadView.swift */; };
+		2E5282ED27528016001B3C3A /* TetrisModeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282EC27528016001B3C3A /* TetrisModeModel.swift */; };
 		2E9530412724BFEE00A36684 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530402724BFEE00A36684 /* ControlsView.swift */; };
 		2E9530492725677700A36684 /* PauseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530482725677700A36684 /* PauseButtonView.swift */; };
 		2E95304D27256D0600A36684 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95304C27256D0600A36684 /* CustomAlertView.swift */; };
@@ -30,14 +33,12 @@
 		2E95306627259CEF00A36684 /* HomeMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */; };
 		2E9530682725A0C900A36684 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530672725A0C900A36684 /* LevelModel.swift */; };
 		2E95306A2725BCFD00A36684 /* HighScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530692725BCFD00A36684 /* HighScoreView.swift */; };
-		2E95306C2725C4CF00A36684 /* GoBackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95306B2725C4CF00A36684 /* GoBackButtonView.swift */; };
 		2EAB667727292F3A005542B6 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB667627292F3A005542B6 /* SquareView.swift */; };
-		2EDBC5272720A4C9001D5992 /* DirectionalPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5262720A4C9001D5992 /* DirectionalPadView.swift */; };
 		2EDBC5292720AB7A001D5992 /* PieceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5282720AB7A001D5992 /* PieceModel.swift */; };
 		2EDBC52B2720AB89001D5992 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC52A2720AB89001D5992 /* ColorData.swift */; };
 		2EDBC52D2720AC0C001D5992 /* PieceOrientationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC52C2720AC0C001D5992 /* PieceOrientationModel.swift */; };
 		2EDBC52F2720AC25001D5992 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC52E2720AC25001D5992 /* Extensions.swift */; };
-		2EDBC5312720B023001D5992 /* RotateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5302720B023001D5992 /* RotateButtonView.swift */; };
+		2EDBC5312720B023001D5992 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5302720B023001D5992 /* ActionButtonView.swift */; };
 		2EDBC5332720B357001D5992 /* TetrisBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBC5322720B357001D5992 /* TetrisBoardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,10 +47,11 @@
 		2E00A2B127286FED002424AF /* ChronoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoModel.swift; sourceTree = "<group>"; };
 		2E0BDC87272432380063F0EB /* PiecePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecePreview.swift; sourceTree = "<group>"; };
 		2E0BDC89272453720063F0EB /* MatchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailView.swift; sourceTree = "<group>"; };
-		2E0BDC8B2724539E0063F0EB /* InfoSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSquareView.swift; sourceTree = "<group>"; };
 		2E0BDC8D272456BA0063F0EB /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
 		2E0BDC8F27245F180063F0EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2E15FB6327231C2100C0FB5B /* TetrisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisModel.swift; sourceTree = "<group>"; };
+		2E1BE75427522656003C36E3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		2E1BE756275226F3003C36E3 /* HighscoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreModel.swift; sourceTree = "<group>"; };
 		2E438636272C55F5009C0475 /* TimerTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTextView.swift; sourceTree = "<group>"; };
 		2E45E77D27075B7400072A88 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E45E78027075B7400072A88 /* TetrisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisApp.swift; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		2E45E78427075B7500072A88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E45E78727075B7500072A88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E45E78E2707658F00072A88 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		2E5282EA275257F4001B3C3A /* KeyPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadView.swift; sourceTree = "<group>"; };
+		2E5282EC27528016001B3C3A /* TetrisModeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisModeModel.swift; sourceTree = "<group>"; };
 		2E8812332726072C00D304BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2E9530402724BFEE00A36684 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		2E9530482725677700A36684 /* PauseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonView.swift; sourceTree = "<group>"; };
@@ -67,14 +71,12 @@
 		2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuButtonView.swift; sourceTree = "<group>"; };
 		2E9530672725A0C900A36684 /* LevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelModel.swift; sourceTree = "<group>"; };
 		2E9530692725BCFD00A36684 /* HighScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreView.swift; sourceTree = "<group>"; };
-		2E95306B2725C4CF00A36684 /* GoBackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackButtonView.swift; sourceTree = "<group>"; };
 		2EAB667627292F3A005542B6 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
-		2EDBC5262720A4C9001D5992 /* DirectionalPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPadView.swift; sourceTree = "<group>"; };
 		2EDBC5282720AB7A001D5992 /* PieceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceModel.swift; sourceTree = "<group>"; };
 		2EDBC52A2720AB89001D5992 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		2EDBC52C2720AC0C001D5992 /* PieceOrientationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceOrientationModel.swift; sourceTree = "<group>"; };
 		2EDBC52E2720AC25001D5992 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		2EDBC5302720B023001D5992 /* RotateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateButtonView.swift; sourceTree = "<group>"; };
+		2EDBC5302720B023001D5992 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		2EDBC5322720B357001D5992 /* TetrisBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisBoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,7 +181,6 @@
 				2EDBC5322720B357001D5992 /* TetrisBoardView.swift */,
 				2EAB667627292F3A005542B6 /* SquareView.swift */,
 				2E0BDC87272432380063F0EB /* PiecePreview.swift */,
-				2E0BDC8B2724539E0063F0EB /* InfoSquareView.swift */,
 				2E00A2AF27285F78002424AF /* InfoGameView.swift */,
 				2E0BDC89272453720063F0EB /* MatchDetailView.swift */,
 				2E438636272C55F5009C0475 /* TimerTextView.swift */,
@@ -210,12 +211,15 @@
 		2E95305527257E5800A36684 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				2E1BE75427522656003C36E3 /* GameModel.swift */,
 				2E15FB6327231C2100C0FB5B /* TetrisModel.swift */,
 				2E0BDC8D272456BA0063F0EB /* ScoreModel.swift */,
 				2EDBC52C2720AC0C001D5992 /* PieceOrientationModel.swift */,
 				2EDBC5282720AB7A001D5992 /* PieceModel.swift */,
 				2E9530672725A0C900A36684 /* LevelModel.swift */,
 				2E00A2B127286FED002424AF /* ChronoModel.swift */,
+				2E1BE756275226F3003C36E3 /* HighscoreModel.swift */,
+				2E5282EC27528016001B3C3A /* TetrisModeModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -258,8 +262,8 @@
 		2E9530622725975500A36684 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				2EDBC5262720A4C9001D5992 /* DirectionalPadView.swift */,
-				2EDBC5302720B023001D5992 /* RotateButtonView.swift */,
+				2EDBC5302720B023001D5992 /* ActionButtonView.swift */,
+				2E5282EA275257F4001B3C3A /* KeyPadView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -275,7 +279,6 @@
 		2E95306427259CD900A36684 /* Mains */ = {
 			isa = PBXGroup;
 			children = (
-				2E95306B2725C4CF00A36684 /* GoBackButtonView.swift */,
 				2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */,
 			);
 			path = Mains;
@@ -351,22 +354,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5282ED27528016001B3C3A /* TetrisModeModel.swift in Sources */,
 				2E9530412724BFEE00A36684 /* ControlsView.swift in Sources */,
 				2E95304D27256D0600A36684 /* CustomAlertView.swift in Sources */,
-				2EDBC5272720A4C9001D5992 /* DirectionalPadView.swift in Sources */,
 				2EDBC52F2720AC25001D5992 /* Extensions.swift in Sources */,
 				2EDBC52D2720AC0C001D5992 /* PieceOrientationModel.swift in Sources */,
+				2E1BE75527522656003C36E3 /* GameModel.swift in Sources */,
 				2E95306627259CEF00A36684 /* HomeMenuButtonView.swift in Sources */,
 				2E00A2B027285F78002424AF /* InfoGameView.swift in Sources */,
-				2E95306C2725C4CF00A36684 /* GoBackButtonView.swift in Sources */,
 				2E95305927257F9C00A36684 /* CountdownView.swift in Sources */,
-				2EDBC5312720B023001D5992 /* RotateButtonView.swift in Sources */,
+				2EDBC5312720B023001D5992 /* ActionButtonView.swift in Sources */,
 				2E95306A2725BCFD00A36684 /* HighScoreView.swift in Sources */,
 				2EAB667727292F3A005542B6 /* SquareView.swift in Sources */,
 				2E15FB6427231C2100C0FB5B /* TetrisModel.swift in Sources */,
 				2E953060272596D600A36684 /* AlertWindowView.swift in Sources */,
 				2E0BDC9027245F180063F0EB /* HomeView.swift in Sources */,
-				2E0BDC8C2724539E0063F0EB /* InfoSquareView.swift in Sources */,
 				2E438637272C55F5009C0475 /* TimerTextView.swift in Sources */,
 				2EDBC5292720AB7A001D5992 /* PieceModel.swift in Sources */,
 				2E00A2B227286FED002424AF /* ChronoModel.swift in Sources */,
@@ -375,9 +377,11 @@
 				2E9530492725677700A36684 /* PauseButtonView.swift in Sources */,
 				2E0BDC8E272456BA0063F0EB /* ScoreModel.swift in Sources */,
 				2EDBC52B2720AB89001D5992 /* ColorData.swift in Sources */,
+				2E5282EB275257F4001B3C3A /* KeyPadView.swift in Sources */,
 				2E45E78327075B7400072A88 /* GameView.swift in Sources */,
 				2E45E78F2707658F00072A88 /* ViewModel.swift in Sources */,
 				2E45E78127075B7400072A88 /* TetrisApp.swift in Sources */,
+				2E1BE757275226F3003C36E3 /* HighscoreModel.swift in Sources */,
 				2EDBC5332720B357001D5992 /* TetrisBoardView.swift in Sources */,
 				2E0BDC88272432380063F0EB /* PiecePreview.swift in Sources */,
 				2E0BDC8A272453720063F0EB /* MatchDetailView.swift in Sources */,

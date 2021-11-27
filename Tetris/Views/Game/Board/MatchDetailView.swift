@@ -15,7 +15,7 @@ struct MatchDetailView: View {
             Text(title)
             Text("\(amount)")
         }
-        .font(.system(size: 13, weight: .heavy, design: .rounded))
+        .font(.caption)
         .padding()
     }
 }

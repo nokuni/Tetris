@@ -12,15 +12,11 @@ struct PiecePreview: View {
     var width: CGFloat
     var height: CGFloat
     var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(.black)
             Image(piece.image)
                 .resizable()
                 .scaledToFit()
-        }
-        .padding()
-        .frame(maxWidth: width, maxHeight: height, alignment: .center)
+                .frame(width: width, height: height)
+                .frame(maxWidth: .infinity)
     }
 }
 

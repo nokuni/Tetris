@@ -14,9 +14,10 @@ struct TimerTextView: View {
         if let tetrisMode = tetrisMode {
             if tetrisMode == .classic {
                 Text(String(format: "%02d:%02d", Int(chrono.minute), Int(chrono.second)))
-                    .foregroundColor(.black)
-                    .fontWeight(.heavy)
-                    .font(.system(.title, design: .monospaced))
+                    .foregroundColor(.leadBlack)
+                    .fontWeight(.bold)
+                    .font(.title)
+                    .frame(maxWidth: .infinity)
             }
         }
     }

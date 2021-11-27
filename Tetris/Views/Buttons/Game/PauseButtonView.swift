@@ -20,15 +20,17 @@ struct PauseButtonView: View {
             cancelChronoTimer?()
             isPresenting.toggle()
         }) {
-            Image(systemName: "pause.fill")
-                .foregroundColor(.black)
-                .font(.largeTitle)
-                .scaledToFit()
-                .padding()
-                .background(Color.white)
+            HStack {
+                Text("Pause")
+                    .fontWeight(.bold)
+                Image(systemName: "pause.fill")
+                    .foregroundColor(.leadBlack)
+                    .scaledToFit()
+            }
+            .font(.title3)
+            .foregroundColor(.leadBlack)
         }
-        .padding()
-        .frame(maxWidth: width, maxHeight: height, alignment: .top)
+        .frame(maxWidth: .infinity)
     }
 }
 

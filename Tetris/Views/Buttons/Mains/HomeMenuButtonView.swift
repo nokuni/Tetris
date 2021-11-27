@@ -16,18 +16,14 @@ struct HomeMenuButtonView: View {
             Image(systemName: image)
             Text(text)
         }
-        .font(.system(size: 25, weight: .heavy, design: .monospaced))
+        .font(Font.title.bold())
         .foregroundColor(.black)
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading)
         .background(
-            Capsule()
-                .stroke(Color.black, lineWidth: 5)
-                .background(
-                    Capsule()
-                        .foregroundColor(color)
-                )
+            color
+                .shadow(color: .black, radius: 0, x: 4, y: 4)
         )
         .padding(.horizontal)
     }

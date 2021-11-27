@@ -11,16 +11,10 @@ struct HomeView: View {
     @EnvironmentObject var vm: TetrisViewModel
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.theme.background
-                    .ignoresSafeArea()
-                VStack(spacing: 50) {
-                    Text("TETRIS")
-                        .foregroundColor(.theme.accent)
-                        .font(.system(size: 90, weight: .heavy, design: .monospaced))
-                        .scaledToFit()
+            ScrollView {
+                VStack(spacing: 25) {
                     NavigationLink(destination: GameView()) {
-                        HomeMenuButtonView(image: "cube.fill", text: "CLASSIC", color: .aliceBlue)
+                        HomeMenuButtonView(image: "cube.fill", text: "Classic", color: .powderBlue)
                     }
                     .simultaneousGesture(
                         TapGesture().onEnded { _ in
@@ -28,7 +22,7 @@ struct HomeView: View {
                         }
                     )
                     NavigationLink(destination: GameView()) {
-                        HomeMenuButtonView(image: "infinity", text: "MARATHON", color: .powderBlue)
+                        HomeMenuButtonView(image: "infinity", text: "Marathon", color: .coral)
                     }
                     .simultaneousGesture(
                         TapGesture().onEnded { _ in
@@ -36,11 +30,11 @@ struct HomeView: View {
                         }
                     )
                     NavigationLink(destination: HighScoreView()) {
-                        HomeMenuButtonView(image: "crown.fill", text: "HIGHSCORES", color: .khaki)
+                        HomeMenuButtonView(image: "crown.fill", text: "Highscores", color: .khaki)
                     }
-                    Spacer()
                 }
             }
+            .navigationTitle("Tetris")
         }
     }
 }

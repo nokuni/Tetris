@@ -13,12 +13,8 @@ struct CountdownView: View {
         if countdown >= 0 {
             ZStack {
                 Color.leadBlack.opacity(0.7).ignoresSafeArea()
-                Circle()
-                    .stroke(Color.theme.accent, lineWidth: 10)
-                    .background(
-                        Circle()
-                            .foregroundColor(.theme.background)
-                    )
+                Rectangle()
+                    .foregroundColor(.theme.background)
                     .frame(width: 200, height: 200)
                 Text(countdown > 0 ? "\(countdown)" : "GO!")
                     .foregroundColor(.theme.accent)

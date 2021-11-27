@@ -10,32 +10,11 @@ import SwiftUI
 struct HighScoreView: View {
     @EnvironmentObject var vm: TetrisViewModel
     var body: some View {
-        ZStack {
-            Color.theme.background
-                .ignoresSafeArea()
-            VStack {
-                Text("HIGHSCORES")
-                    .foregroundColor(.theme.accent)
-                    .font(.system(size: 50, weight: .heavy, design: .monospaced))
-                ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.theme.accent, lineWidth: 5)
-                        .background(Color.theme.background)
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            ForEach(vm.highscores, id: \.self) { highscore in
-                                ScoreRowView(highscore: highscore)
-                            }
-                        }
-                        .padding(.top)
-                    }
-                }
-                GoBackButtonView()
-            }
-            .padding(.horizontal)
+        List(vm.highscores.indices, id: \.self) { index in
+            ScoreRowView(position: index + 1, highscore: vm.highscores[index])
         }
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
+        .listStyle(.plain)
+        .navigationTitle("Highscores")
     }
 }
 
@@ -46,27 +25,26 @@ struct HighScoreView_Previews: PreviewProvider {
     }
 }
 
-struct HighscoreModel: Hashable {
-    let icon: String
-    let color: Color
-    var score: Int
-}
-
 struct ScoreRowView: View {
+    var position: Int
     var highscore: HighscoreModel
     var body: some View {
         HStack {
-            Image(systemName: highscore.icon)
-                .font(.title2)
-                .foregroundColor(highscore.color)
-                .shadow(color: Color.black, radius: 0, x: 2, y: 2)
+            switch position {
+            case 1:
+                Text("\(position)st")
+            case 2:
+                Text("\(position)nd")
+            case 3:
+                Text("\(position)rd")
+            default:
+                Text("\(position)th")
+            }
+            Text(highscore.name)
+                .frame(maxWidth: .infinity)
             Text("\(highscore.score)")
-                .foregroundColor(.theme.accent)
-                .font(.system(size: 20, weight: .heavy, design: .monospaced))
+                .frame(maxWidth: .infinity)
         }
-        .padding(.leading)
-        Rectangle()
-            .foregroundColor(.theme.accent)
-            .frame(width: 353, height: 5)
+        .font(Font.title.bold())
     }
 }
