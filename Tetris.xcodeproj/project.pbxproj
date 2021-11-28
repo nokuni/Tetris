@@ -27,6 +27,9 @@
 		2E5282F12752C2C9001B3C3A /* SpaceBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282F02752C2C9001B3C3A /* SpaceBackgroundView.swift */; };
 		2E5282F6275380E2001B3C3A /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282F5275380E2001B3C3A /* Styles.swift */; };
 		2E5282F827538711001B3C3A /* TextAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282F727538711001B3C3A /* TextAnimationView.swift */; };
+		2E5282FA2753EC1C001B3C3A /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282F92753EC1C001B3C3A /* AdventureView.swift */; };
+		2E5282FC2753F4D0001B3C3A /* AdventureAlertWindowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282FB2753F4D0001B3C3A /* AdventureAlertWindowsView.swift */; };
+		2E5282FE27540273001B3C3A /* AdventureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5282FD27540273001B3C3A /* AdventureModel.swift */; };
 		2E9530412724BFEE00A36684 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530402724BFEE00A36684 /* ControlsView.swift */; };
 		2E9530492725677700A36684 /* PauseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9530482725677700A36684 /* PauseButtonView.swift */; };
 		2E95304D27256D0600A36684 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95304C27256D0600A36684 /* CustomAlertView.swift */; };
@@ -67,6 +70,9 @@
 		2E5282F02752C2C9001B3C3A /* SpaceBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceBackgroundView.swift; sourceTree = "<group>"; };
 		2E5282F5275380E2001B3C3A /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		2E5282F727538711001B3C3A /* TextAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimationView.swift; sourceTree = "<group>"; };
+		2E5282F92753EC1C001B3C3A /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
+		2E5282FB2753F4D0001B3C3A /* AdventureAlertWindowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureAlertWindowsView.swift; sourceTree = "<group>"; };
+		2E5282FD27540273001B3C3A /* AdventureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureModel.swift; sourceTree = "<group>"; };
 		2E8812332726072C00D304BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2E9530402724BFEE00A36684 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		2E9530482725677700A36684 /* PauseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonView.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 				2E95304C27256D0600A36684 /* CustomAlertView.swift */,
 				2E95305827257F9C00A36684 /* CountdownView.swift */,
 				2E95305F272596D600A36684 /* AlertWindowView.swift */,
+				2E5282FB2753F4D0001B3C3A /* AdventureAlertWindowsView.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -224,6 +231,7 @@
 				2E5282F727538711001B3C3A /* TextAnimationView.swift */,
 				2E9530692725BCFD00A36684 /* HighScoreView.swift */,
 				2E0BDC8F27245F180063F0EB /* HomeView.swift */,
+				2E5282F92753EC1C001B3C3A /* AdventureView.swift */,
 			);
 			path = Mains;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				2E00A2B127286FED002424AF /* ChronoModel.swift */,
 				2E1BE756275226F3003C36E3 /* HighscoreModel.swift */,
 				2E5282EC27528016001B3C3A /* TetrisModeModel.swift */,
+				2E5282FD27540273001B3C3A /* AdventureModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -329,14 +338,17 @@
 				2E95304D27256D0600A36684 /* CustomAlertView.swift in Sources */,
 				2EDBC52F2720AC25001D5992 /* Extensions.swift in Sources */,
 				2EDBC52D2720AC0C001D5992 /* PieceOrientationModel.swift in Sources */,
+				2E5282FC2753F4D0001B3C3A /* AdventureAlertWindowsView.swift in Sources */,
 				2E1BE75527522656003C36E3 /* GameModel.swift in Sources */,
 				2E95306627259CEF00A36684 /* HomeMenuButtonView.swift in Sources */,
 				2E00A2B027285F78002424AF /* InfoGameView.swift in Sources */,
+				2E5282FE27540273001B3C3A /* AdventureModel.swift in Sources */,
 				2E95305927257F9C00A36684 /* CountdownView.swift in Sources */,
 				2EDBC5312720B023001D5992 /* ActionButtonView.swift in Sources */,
 				2E95306A2725BCFD00A36684 /* HighScoreView.swift in Sources */,
 				2EAB667727292F3A005542B6 /* SquareView.swift in Sources */,
 				2E15FB6427231C2100C0FB5B /* TetrisModel.swift in Sources */,
+				2E5282FA2753EC1C001B3C3A /* AdventureView.swift in Sources */,
 				2E953060272596D600A36684 /* AlertWindowView.swift in Sources */,
 				2E0BDC9027245F180063F0EB /* HomeView.swift in Sources */,
 				2E438637272C55F5009C0475 /* TimerTextView.swift in Sources */,

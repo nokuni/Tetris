@@ -124,6 +124,11 @@ struct TetrisModel: Equatable {
         }
         return false
     }
+    
+    func isGameWon(adventure: Adventure?) -> Bool {
+        if let adventure = adventure { return score.lines >= adventure.lineCondition }
+        return false
+    }
 }
 
 extension TetrisModel {

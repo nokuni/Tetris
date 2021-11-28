@@ -19,7 +19,7 @@ struct SquareView: View {
         ZStack {
             Rectangle()
                 .foregroundColor(Color.clear)
-//                .stroke(index > 29 && tetris.piece.position.contains(index) || tetris.squares[index] != .clear ? Color.clear : Color.clear, lineWidth: 1)
+                //.stroke(index > 29 && tetris.piece.position.contains(index) || tetris.squares[index] != .clear ? Color.black : Color.clear, lineWidth: 1)
                 .frame(maxWidth: width, maxHeight: width)
                 .background(
                     index < 30 ? tetris.piece.color : tetris.piece.position.contains(index) ? tetris.piece.color : tetris.squares[index]

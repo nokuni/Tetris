@@ -13,14 +13,9 @@ struct HomeView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 25) {
-                    NavigationLink(destination: GameView()) {
+                    NavigationLink(destination: AdventureView(vm: vm)) {
                         HomeMenuButtonView(image: "book.closed.fill", text: "Adventure", color: .aliceBlue)
                     }
-                    .simultaneousGesture(
-                        TapGesture().onEnded { _ in
-                            vm.setTetrisMode(mode: .space)
-                        }
-                    )
                     NavigationLink(destination: GameView()) {
                         HomeMenuButtonView(image: "cube.fill", text: "Classic", color: .powderBlue)
                     }

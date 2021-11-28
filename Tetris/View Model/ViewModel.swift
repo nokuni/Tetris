@@ -12,10 +12,12 @@ import SwiftUI
 final class TetrisViewModel: ObservableObject {
     @Published private(set) var tetris = TetrisModel.byDefault
     @Published private(set) var tetrisMode: TetrisMode? = nil
-    @Published private(set) var highscores: [HighscoreModel] = [
-        HighscoreModel(mode: .classic, score: ScoreModel(points: 4_076, lines: 35))
-    ].sorted(by: { $0.score.points > $1.score.points })
+    @Published private(set) var adventure: Adventure? = nil
+    
+    @Published private(set) var highscores: [HighscoreModel] = [].sorted(by: { $0.score.points > $1.score.points })
+    
     @Published var isAlertShowing = false
+    @Published var isAdventureAlertShowing = false
     @Published var isAnimatingBackground = false
     @Published var isAnimatingText = false
     
@@ -50,6 +52,7 @@ final class TetrisViewModel: ObservableObject {
             generateNextRandomNewPiece()
             getPrevisualisationPiece()
             if tetris.isGameLost() { endGame() }
+            if tetris.isGameWon(adventure: adventure) { endGame() }
         }
     }
     
@@ -132,7 +135,6 @@ final class TetrisViewModel: ObservableObject {
         resetAllTimers()
         resetGame()
         getPrevisualisationPiece()
-        startCountdownTimer()
     }
     
     // Reset the game
@@ -154,6 +156,12 @@ final class TetrisViewModel: ObservableObject {
     
     // Set a tetris mode
     func setTetrisMode(mode: TetrisMode) { tetrisMode = mode }
+    
+    // Set an adventure
+    func setAdventure(adventure: Adventure) {
+        self.adventure = adventure
+        isAdventureAlertShowing.toggle()
+    }
     
     // End Game
     func endGame() {

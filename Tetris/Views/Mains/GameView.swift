@@ -16,14 +16,15 @@ struct GameView: View {
             Color.white.opacity(vm.isAnimatingBackground ? 1 : 0)
                 .ignoresSafeArea()
             Board
-            Alert
             Countdown
+            Alert
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
         .onAppear {
             vm.isAlertShowing = false
             vm.startNewGame()
+            if !vm.isAdventureAlertShowing { vm.startCountdownTimer() }
         }
     }
 }
@@ -47,21 +48,21 @@ extension GameView {
             VStack(spacing: 10) {
                 InfoGame
                 TetrisBoardView(width: geo.size.width * 0.1, height: geo.size.width, tetris: vm.tetris, mode: vm.tetrisMode, chrono: vm.chrono, isShowing: $vm.isAnimatingText)
-                        .overlay(
-                            HStack {
-                                TimerTextView(tetrisMode: vm.tetrisMode, chrono: vm.chrono)
-                                PiecePreview(piece: vm.tetris.nextPiece, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
-                                PauseButtonView(isPresenting: $vm.isAlertShowing, cancelTimer: vm.resetTimer, cancelChronoTimer: vm.resetChronoTimer, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
-                            }
-                                .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.7, alignment: .top)
-                        )
+                    .overlay(
+                        HStack {
+                            TimerTextView(tetrisMode: vm.tetrisMode, chrono: vm.chrono)
+                            PiecePreview(piece: vm.tetris.nextPiece, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
+                            PauseButtonView(isPresenting: $vm.isAlertShowing, cancelTimer: vm.resetTimer, cancelChronoTimer: vm.resetChronoTimer, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
+                        }
+                            .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.7, alignment: .top)
+                    )
                 ControlsView(movingLeft: vm.movePieceLeft, movingRight: vm.movePieceRight, speedUp: vm.movePieceDown, rotatePiece: vm.rotatePiece, cancellables: vm.gameCancellables, width: geo.size.width, height: geo.size.height * 0.15)
             }
         }
         .padding()
     }
     var Alert: some View {
-        CustomAlertView(isPresenting: $vm.isAlertShowing, score: vm.tetris.score.points, isGameLost: vm.tetris.isGameLost(), isTimedOut: vm.isTimedOut(), startTimer: vm.startTimer, startChronoTimer: vm.startChronoTimer, newGame: vm.startNewGame)
+        CustomAlertView(isAlertShowing: $vm.isAlertShowing, isAdventureAlertShowing: $vm.isAdventureAlertShowing, adventure: vm.adventure, score: vm.tetris.score.points, isGameLost: vm.tetris.isGameLost(), isTimedOut: vm.isTimedOut(), startTimer: vm.startTimer, startChronoTimer: vm.startChronoTimer, startCountdownTimer: vm.startCountdownTimer, newGame: vm.startNewGame)
     }
     var Countdown: some View {
         CountdownView(countdown: vm.countdown)
