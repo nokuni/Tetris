@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct HighScoreView: View {
-    @EnvironmentObject var vm: TetrisViewModel
+    @ObservedObject var vm: TetrisViewModel
     var body: some View {
-        List(vm.highscores.indices, id: \.self) { index in
-            ScoreRowView(position: index + 1, highscore: vm.highscores[index])
+        List {
+            GeometryReader { geometry in
+                HStack {
+                    Text("Rank")
+                        .frame(maxWidth: geometry.size.width * 0.2, alignment: .leading)
+                    Text("Mode")
+                        .frame(maxWidth: geometry.size.width * 0.5, alignment: .leading)
+                    Text("Points")
+                        .frame(maxWidth: geometry.size.width * 0.3, alignment: .leading)
+                }
+            }
+            ForEach(vm.highscores.indices, id: \.self) { index in
+                ScoreRowView(position: index + 1, highscore: vm.highscores[index])
+            }
         }
         .listStyle(.plain)
         .navigationTitle("Highscores")
@@ -20,8 +32,7 @@ struct HighScoreView: View {
 
 struct HighScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        HighScoreView()
-            .environmentObject(TetrisViewModel())
+        HighScoreView(vm: TetrisViewModel())
     }
 }
 
@@ -40,11 +51,11 @@ struct ScoreRowView: View {
             default:
                 Text("\(position)th")
             }
-            Text(highscore.name)
+            Text(highscore.mode.rawValue.capitalized)
                 .frame(maxWidth: .infinity)
-            Text("\(highscore.score)")
+            Text("\(highscore.score.points)")
                 .frame(maxWidth: .infinity)
         }
-        .font(Font.title.bold())
+        .font(Font.title3.bold())
     }
 }

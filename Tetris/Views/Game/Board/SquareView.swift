@@ -18,13 +18,14 @@ struct SquareView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .stroke(index > 29 && tetris.piece.position.contains(index) || tetris.squares[index] != .clear ? Color.clear : Color.clear, lineWidth: 1)
+                .foregroundColor(Color.clear)
+//                .stroke(index > 29 && tetris.piece.position.contains(index) || tetris.squares[index] != .clear ? Color.clear : Color.clear, lineWidth: 1)
                 .frame(maxWidth: width, maxHeight: width)
                 .background(
                     index < 30 ? tetris.piece.color : tetris.piece.position.contains(index) ? tetris.piece.color : tetris.squares[index]
                 )
                 .background(
-                    tetris.previsualisationPiece.position.contains(index) ? Color.black.opacity(0.3) : Color.clear
+                    tetris.previsualisationPiece.position.contains(index) ? Color.black.opacity(0.2) : Color.clear
                 )
         }
     }

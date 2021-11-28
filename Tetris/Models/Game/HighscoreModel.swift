@@ -8,6 +8,6 @@
 import SwiftUI
 
 struct HighscoreModel: Hashable {
-    let name: String
-    var score: Int
+    let mode: TetrisMode
+    var score: ScoreModel
 }

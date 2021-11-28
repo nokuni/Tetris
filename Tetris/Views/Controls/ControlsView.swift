@@ -19,9 +19,13 @@ struct ControlsView: View {
     var body: some View {
         HStack {
             KeyPadView(action: movingLeft, image: "arrowtriangle.backward.fill", height: height * 0.5, cancellables: cancellables)
-            KeyPadView(action: speedUp, image: "arrowtriangle.down.fill", height: height * 0.5, cancellables: cancellables)
+            VStack {
+                Spacer()
+                KeyPadView(action: speedUp, image: "arrowtriangle.down.fill", height: height * 0.5, cancellables: cancellables)
+            }
             KeyPadView(action: movingRight, image: "arrowtriangle.forward.fill", height: height * 0.5, cancellables: cancellables)
-            ActionButtonView(image: "arrow.clockwise", action: rotatePiece, cancellables: cancellables)
+            
+            ActionButtonView(image: "rotate.right.fill", action: rotatePiece, cancellables: cancellables)
         }
         .frame(maxWidth: width, maxHeight: height)
     }

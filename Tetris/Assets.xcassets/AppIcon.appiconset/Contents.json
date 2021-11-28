@@ -1,109 +1,109 @@
 {
   "images" : [
     {
-      "filename" : "tetrisLogo40x40.png",
+      "filename" : "Icon-App-20x20@2x-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "tetrisLogo60x60.png",
+      "filename" : "Icon-App-20x20@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "tetrisLogo58x58-1.png",
+      "filename" : "Icon-App-29x29@2x-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "tetrisLogo87x87.png",
+      "filename" : "Icon-App-29x29@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "tetrisLogo80x80-1.png",
+      "filename" : "Icon-App-40x40@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "tetrisLogo120x120-1.png",
+      "filename" : "Icon-App-40x40@3x-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "tetrisLogo120x120.png",
+      "filename" : "Icon-App-40x40@3x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "tetrisLogo180x180.png",
+      "filename" : "Icon-App-60x60@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "tetrisLogo20x20.png",
+      "filename" : "Icon-App-20x20@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "tetrisLogo40x40-1.png",
+      "filename" : "Icon-App-20x20@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "tetrisLogo29x29.png",
+      "filename" : "Icon-App-29x29@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "tetrisLogo58x58.png",
+      "filename" : "Icon-App-29x29@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "tetrisLogo40x40-2.png",
+      "filename" : "Icon-App-40x40@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "tetrisLogo80x80.png",
+      "filename" : "Icon-App-40x40@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "tetrisLogo76x76.png",
+      "filename" : "Icon-App-76x76@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "tetrisLogo152x152.png",
+      "filename" : "Icon-App-76x76@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "tetrisLogo167x167.png",
+      "filename" : "Icon-App-83.5x83.5@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "tetrisLogo1024x1024.png",
+      "filename" : "iTunesArtwork@2x.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

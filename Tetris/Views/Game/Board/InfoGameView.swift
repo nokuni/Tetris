@@ -8,35 +8,33 @@
 import SwiftUI
 
 struct InfoGameView: View {
-    var level: Int
-    var score: Int
-    var lines: Int
+    var score: ScoreModel
     var body: some View {
         HStack {
             VStack {
                 Text("Level")
-                Text("\(level)")
+                Text("\(score.level)")
                     .fontWeight(.heavy)
             }
             .frame(maxWidth: .infinity)
-            Text("\(score)")
+            Text("\(score.points)")
                 .fontWeight(.heavy)
                 .font(.title)
                 .frame(maxWidth: .infinity)
             VStack {
                 Text("Lines")
-                Text("\(lines)")
+                Text("\(score.lines)")
                     .fontWeight(.heavy)
             }
             .frame(maxWidth: .infinity)
         }
         .font(Font.title3.bold())
-        .foregroundColor(.black)
+        .foregroundColor(.leadBlack)
     }
 }
 
 struct InfoGameView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoGameView(level: 0, score: 0, lines: 0)
+        InfoGameView(score: ScoreModel(points: 0, lines: 0))
     }
 }

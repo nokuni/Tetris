@@ -7,9 +7,22 @@
 
 import Foundation
 
-enum Score: Int {
-    case one = 40
-    case two = 100
-    case three = 300
-    case four = 1200
+enum LineCleared: Int {
+    case one = 1
+    case two = 2
+    case three = 3
+    case four = 4
+    
+    var text: String {
+        switch self {
+        case .one:
+            return "LINE"
+        case .two:
+            return "DOUBLE"
+        case .three:
+            return "TRIPLE"
+        case .four:
+            return "LINEBLOCK"
+        }
+    }
 }

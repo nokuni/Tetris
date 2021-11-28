@@ -8,6 +8,7 @@
 import Foundation
 
 enum TetrisMode: String {
-    case classic = "Classic"
-    case marathon = "Marathon"
+    case classic
+    case marathon
+    case space
 }

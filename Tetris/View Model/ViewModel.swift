@@ -10,21 +10,17 @@ import Combine
 import SwiftUI
 
 final class TetrisViewModel: ObservableObject {
-    
     @Published private(set) var tetris = TetrisModel.byDefault
     @Published private(set) var tetrisMode: TetrisMode? = nil
-    
     @Published private(set) var highscores: [HighscoreModel] = [
-        HighscoreModel(name: "OKI", score: 100_000),
-        HighscoreModel(name: "LMP", score: 50_000),
-        HighscoreModel(name: "CGF", score: 10_000)
-    ].sorted(by: { $0.score > $1.score })
+        HighscoreModel(mode: .classic, score: ScoreModel(points: 4_076, lines: 35))
+    ].sorted(by: { $0.score.points > $1.score.points })
     @Published var isAlertShowing = false
     @Published var isAnimatingBackground = false
+    @Published var isAnimatingText = false
     
     @Published private(set) var chrono: ChronoModel = ChronoModel(minute: 3, second: 0)
     @Published private(set) var countdown = 3
-    @Published private(set) var speed: Double = 0.0
     
     @Published private(set) var gameCancellables = Set<AnyCancellable>()
     @Published private(set) var chronoCancellables = Set<AnyCancellable>()
@@ -32,13 +28,10 @@ final class TetrisViewModel: ObservableObject {
     
     // MARK: - Board Timer
     
-    // Game speed
-    func getGameSpeed() -> Double { speeds[tetris.level] }
-    
     // Start a timer for the board.
     func startTimer() {
         Timer
-            .publish(every: speed, on: .main, in: .common)
+            .publish(every: tetris.score.speed, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
                 self.gameOnGoing
@@ -49,9 +42,8 @@ final class TetrisViewModel: ObservableObject {
     // Manage all the behaviors the board.
     var gameOnGoing: Void {
         if !tetris.isPieceOnLastRow(piece: tetris.piece) && !tetris.isPieceCollidingBottom(piece: tetris.piece) {
-            dropPiece()
+            movePieceDown()
         } else {
-            slowDownTimer()
             createPieceOnBoard()
             checkFullColoredRows()
             generateRandomNewPiece()
@@ -65,22 +57,6 @@ final class TetrisViewModel: ObservableObject {
     func resetTimer() {
         gameCancellables.forEach { $0.cancel() }
         gameCancellables.removeAll()
-    }
-    
-    // Speed up the timer speed.
-    func speedUpTimer() {
-        if speed != 0.01 {
-            resetTimer()
-            speed = 0.01
-            startTimer()
-        }
-    }
-    
-    // Slow down the timer speed.
-    func slowDownTimer() {
-        resetTimer()
-        speed = getGameSpeed()
-        startTimer()
     }
     
     // MARK: - Chrono Timer
@@ -117,9 +93,7 @@ final class TetrisViewModel: ObservableObject {
     }
     
     // Check if the chrono is timed out.
-    func isTimedOut() -> Bool {
-        chrono.minute == 0 && chrono.second == 0 ? true : false
-    }
+    func isTimedOut() -> Bool { chrono.minute == 0 && chrono.second == 0 }
     
     // MARK: - Countdown Timer
     
@@ -179,13 +153,11 @@ final class TetrisViewModel: ObservableObject {
     }
     
     // Set a tetris mode
-    func setTetrisMode(mode: TetrisMode) {
-        tetrisMode = mode
-    }
+    func setTetrisMode(mode: TetrisMode) { tetrisMode = mode }
     
     // End Game
     func endGame() {
-        //highscores.append(HighscoreModel(icon: "person.fill", color: .powderBlue, score: tetris.score))
+        highscores.append(HighscoreModel(mode: tetrisMode ?? .classic, score: tetris.score))
         resetAllTimers()
         isAlertShowing.toggle()
     }
@@ -220,11 +192,6 @@ final class TetrisViewModel: ObservableObject {
         tetris.nextPiece = Piece.pieces.randomElement()!
     }
     
-    // Move the dropping piece one square down.
-    func dropPiece() {
-        tetris.piece.position.indices.forEach { tetris.piece.position[$0] += tetris.columnsIndices.count }
-    }
-    
     // Previsualisation of the dropping piece.
     func getPrevisualisationPiece() {
         tetris.previsualisationPiece = tetris.piece
@@ -235,15 +202,18 @@ final class TetrisViewModel: ObservableObject {
     
     // Level Up
     func LevelUp() {
-        if tetris.lines > tetris.nextLevel {
-            tetris.level += 1
-        }
+        tetris.score.level = tetris.score.lines > tetris.score.nextLevel ? tetris.score.level + 1 : tetris.score.level + 0
     }
     
     // Rotate the dropping piece with an orientation
     func orientPiece(index: Int, orientation: PieceOrientation) {
-        tetris.piece.position.indices.forEach { tetris.piece.position[$0] += tetris.piece.pattern[index][$0] }
-        tetris.piece.orientation = orientation
+        let indices = tetris.piece.position.indices
+        // Check if the new position of the piece is all clear
+        let isAllClear = indices.allSatisfy({ tetris.isSquareClear(index: tetris.piece.position[$0] + tetris.piece.pattern[index][$0]) })
+        if isAllClear {
+            tetris.piece.position.indices.forEach { tetris.piece.position[$0] += tetris.piece.pattern[index][$0] }
+            tetris.piece.orientation = orientation
+        }
     }
     
     // Rotate the dropping piece in a repeating cycle of 4 stances.
@@ -277,7 +247,7 @@ final class TetrisViewModel: ObservableObject {
         guard tetris.boardIndices.contains(where:  { nextPositon.contains($0 )}) else { return }
         if !tetris.isPieceOnRightEdge() && !tetris.isPieceCollidingHorizontally(by: [-1]) {
             tetris.piece.position = nextPositon
-            getPrevisualisationPiece()
+            if !tetris.isPieceOnLastRow(piece: tetris.piece) { getPrevisualisationPiece() }
         }
     }
     
@@ -287,25 +257,34 @@ final class TetrisViewModel: ObservableObject {
         guard tetris.boardIndices.contains(where:  { nextPositon.contains($0 )}) else { return }
         if !tetris.isPieceOnLeftEdge() && !tetris.isPieceCollidingHorizontally(by: [1]) {
             tetris.piece.position = nextPositon
-            getPrevisualisationPiece()
+            if !tetris.isPieceOnLastRow(piece: tetris.piece) { getPrevisualisationPiece() }
+        }
+    }
+    
+    // Move the dropping piece one square down
+    func movePieceDown() {
+        let nextPositon = tetris.piece.position.map { $0 + 10 }
+        guard tetris.boardIndices.contains(where:  { nextPositon.contains($0 )}) else { return }
+        if !tetris.isPieceCollidingBottom(piece: tetris.piece) && !tetris.isPieceOnLastRow(piece: tetris.piece) {
+            tetris.piece.position = nextPositon
         }
     }
     
     // MARK: - Board passive actions
     
     // Check the scoring
-    func scoringPoints(numberOfLines: Int) {
-        switch numberOfLines {
+    func scoringPoints(lineCleared: Int) {
+        switch lineCleared {
         case 1:
-            tetris.score += 40
+            tetris.score.points += tetris.score.linePoints[lineCleared - 1]
         case 2:
-            tetris.score += 100
+            tetris.score.points += tetris.score.linePoints[lineCleared - 1]
         case 3:
-            tetris.score += 300
+            tetris.score.points += tetris.score.linePoints[lineCleared - 1]
         case 4:
-            tetris.score += 1200
+            tetris.score.points += tetris.score.linePoints[lineCleared - 1]
         default:
-            tetris.score += 0
+            tetris.score.points += 0
         }
     }
     
@@ -315,27 +294,35 @@ final class TetrisViewModel: ObservableObject {
            let lastLineIndex = rowIndex.last {
             withAnimation {
                 tetris.squares.replaceSubrange(firstLineIndex ... lastLineIndex, with: [Color](repeating: .clear, count: rowIndex.count))
-                tetris.lines += 1
+                tetris.score.lines += 1
             }
         }
     }
     
     // Check if all the rows on the board are full colored squares, clear them and make the squares fall.
     func checkFullColoredRows() {
+        var lineCleared = 0
         repeat {
-            var lineCounter = 0
             for rowIndex in Array(tetris.rowsIndices.reversed()) {
                 if tetris.isRowFullColored(row: rowIndex) {
-                    lineCounter += 1
+                    lineCleared += 1
                     clearLine(rowIndex: rowIndex)
-                    //DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { self.bringDownBlocks() }
-                    bringDownBlocks()
+                    if tetrisMode != .space { bringDownBlocks() }
                     animateBackground()
                 }
             }
-            scoringPoints(numberOfLines: lineCounter)
-            LevelUp()
         } while Array(tetris.rowsIndices.reversed()).contains(where: { tetris.isRowFullColored(row: $0) })
+        
+        if lineCleared >= 4 {
+            withAnimation(.linear(duration: 0.1).repeatForever()) {
+                isAnimatingText.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.isAnimatingText.toggle()
+                }
+            }
+        }
+        scoringPoints(lineCleared: lineCleared)
+        LevelUp()
     }
     
     func animateBackground() {
@@ -356,7 +343,6 @@ final class TetrisViewModel: ObservableObject {
                 tetris.squares[index] = .clear
             }
         }
-        
     }
     
     // MARK: - Kick Wall
@@ -422,6 +408,6 @@ final class TetrisViewModel: ObservableObject {
     }
     
     init() {
-        speed = getGameSpeed()
+        
     }
 }

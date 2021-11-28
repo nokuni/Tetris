@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct TetrisModel: Equatable {
-    var score: Int
-    var level: Int
-    var lines: Int
+    var score: ScoreModel
     var squares: [Color]
     var piece: Piece = Piece.pieces.randomElement()!
     var nextPiece = Piece.pieces.randomElement()!
-    var previsualisationPiece = Piece.iBlock
-    
-    var nextLevel: Int {
-        (level * 10) + 10
-    }
+    var previsualisationPiece = Piece.oBlock
     
     // Columns indices of the board
     var columnsIndices: [[Int]] {
@@ -133,5 +127,5 @@ struct TetrisModel: Equatable {
 }
 
 extension TetrisModel {
-    static let byDefault = TetrisModel(score: 0, level: 0, lines: 0, squares: [Color](repeating: .clear, count: 230))
+    static let byDefault = TetrisModel(score: ScoreModel(points: 0, lines: 0), squares: [Color](repeating: .clear, count: 230))
 }

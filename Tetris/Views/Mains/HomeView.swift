@@ -14,6 +14,14 @@ struct HomeView: View {
             ScrollView {
                 VStack(spacing: 25) {
                     NavigationLink(destination: GameView()) {
+                        HomeMenuButtonView(image: "book.closed.fill", text: "Adventure", color: .aliceBlue)
+                    }
+                    .simultaneousGesture(
+                        TapGesture().onEnded { _ in
+                            vm.setTetrisMode(mode: .space)
+                        }
+                    )
+                    NavigationLink(destination: GameView()) {
                         HomeMenuButtonView(image: "cube.fill", text: "Classic", color: .powderBlue)
                     }
                     .simultaneousGesture(
@@ -22,20 +30,21 @@ struct HomeView: View {
                         }
                     )
                     NavigationLink(destination: GameView()) {
-                        HomeMenuButtonView(image: "infinity", text: "Marathon", color: .coral)
+                        HomeMenuButtonView(image: "infinity", text: "Infinite", color: .coral)
                     }
                     .simultaneousGesture(
                         TapGesture().onEnded { _ in
                             vm.setTetrisMode(mode: .marathon)
                         }
                     )
-                    NavigationLink(destination: HighScoreView()) {
+                    NavigationLink(destination: HighScoreView(vm: vm)) {
                         HomeMenuButtonView(image: "crown.fill", text: "Highscores", color: .khaki)
                     }
                 }
             }
-            .navigationTitle("Tetris")
+            .navigationTitle("LineBlock")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -43,6 +52,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(TetrisViewModel())
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
     }
 }

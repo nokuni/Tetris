@@ -13,15 +13,19 @@ struct TetrisBoardView: View {
     var tetris: TetrisModel
     var mode: TetrisMode?
     var chrono: ChronoModel
+    @Binding var isShowing: Bool
     var body: some View {
-        VStack(spacing: 0) {
-            ForEach(Array(tetris.squares.indices).separate(into: 10), id: \.self) { row in
-                HStack(spacing: 0) {
-                    ForEach(row, id: \.self) { index in
-                        SquareView(index: index, tetris: tetris, width: width * 0.8, height: width * 0.8)
+        ZStack {
+            VStack(spacing: 0) {
+                ForEach(Array(tetris.squares.indices).separate(into: 10), id: \.self) { row in
+                    HStack(spacing: 0) {
+                        ForEach(row, id: \.self) { index in
+                            SquareView(index: index, tetris: tetris, width: width * 0.8, height: width * 0.8)
+                        }
                     }
                 }
             }
+            TextAnimationView(isShowing: $isShowing)
         }
         .background(Color.white)
     }
@@ -29,6 +33,6 @@ struct TetrisBoardView: View {
 
 struct TetrisBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        TetrisBoardView(width: 40, height: 100, tetris: TetrisModel.byDefault, mode: TetrisMode.classic, chrono: ChronoModel(minute: 3, second: 0))
+        TetrisBoardView(width: 40, height: 100, tetris: TetrisModel.byDefault, mode: TetrisMode.classic, chrono: ChronoModel(minute: 3, second: 0), isShowing: .constant(false))
     }
 }
