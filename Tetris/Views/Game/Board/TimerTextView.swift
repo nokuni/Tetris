@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct TimerTextView: View {
-    var tetrisMode: TetrisMode?
-    var chrono: ChronoModel
+    var chrono: ChronoModel?
     var body: some View {
-        if let tetrisMode = tetrisMode {
-            if tetrisMode == .classic {
-                Text(String(format: "%02d:%02d", Int(chrono.minute), Int(chrono.second)))
-                    .foregroundColor(.leadBlack)
-                    .fontWeight(.bold)
-                    .font(.title)
-                    .frame(maxWidth: .infinity)
-            }
+        if let chrono = chrono {
+            Text(String(format: "%02d:%02d", Int(chrono.minute), Int(chrono.second)))
+                .foregroundColor(.leadBlack)
+                .fontWeight(.bold)
+                .font(.title3)
+                .frame(maxWidth: .infinity)
+            
+        } else {
+            Text("Timeless")
+                .foregroundColor(.leadBlack)
+                .fontWeight(.bold)
+                .font(.title3)
+                .frame(maxWidth: .infinity)
         }
     }
 }
@@ -26,6 +30,6 @@ struct TimerTextView: View {
 
 struct TimerTextView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerTextView(chrono: ChronoModel(minute: 3.0, second: 0.0))
+        TimerTextView(chrono: nil)
     }
 }

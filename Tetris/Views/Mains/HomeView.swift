@@ -14,22 +14,22 @@ struct HomeView: View {
             ScrollView {
                 VStack(spacing: 25) {
                     NavigationLink(destination: AdventureView(vm: vm)) {
-                        HomeMenuButtonView(image: "book.closed.fill", text: "Adventure", color: .aliceBlue)
+                        HomeMenuButtonView(image: "book.fill", text: "Adventure", color: .aliceBlue)
                     }
                     NavigationLink(destination: GameView()) {
-                        HomeMenuButtonView(image: "cube.fill", text: "Classic", color: .powderBlue)
+                        HomeMenuButtonView(image: Adventure.classic.image, text: Adventure.classic.title, color: .powderBlue)
                     }
                     .simultaneousGesture(
                         TapGesture().onEnded { _ in
-                            vm.setTetrisMode(mode: .classic)
+                            vm.startNewGame(adventure: .classic)
                         }
                     )
                     NavigationLink(destination: GameView()) {
-                        HomeMenuButtonView(image: "infinity", text: "Infinite", color: .coral)
+                        HomeMenuButtonView(image: Adventure.marathon.image, text: Adventure.marathon.title, color: .coral)
                     }
                     .simultaneousGesture(
                         TapGesture().onEnded { _ in
-                            vm.setTetrisMode(mode: .marathon)
+                            vm.startNewGame(adventure: .marathon)
                         }
                     )
                     NavigationLink(destination: HighScoreView(vm: vm)) {

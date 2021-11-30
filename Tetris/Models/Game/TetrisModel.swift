@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TetrisModel: Equatable {
     var score: ScoreModel
+    var adventure: Adventure?
     var squares: [Color]
     var piece: Piece = Piece.pieces.randomElement()!
     var nextPiece = Piece.pieces.randomElement()!
@@ -40,7 +41,7 @@ struct TetrisModel: Equatable {
     func getNextBottomSquareIndex(index: Int) -> Int { index + columnsIndices.count }
     
     // Check if the dropping piece is on the left edge.
-    func isPieceOnLeftEdge() -> Bool {
+    var isPieceOnLeftEdge: Bool {
         if let firstColumn = columnsIndices.first {
             let isPieceOnFirstColumn = firstColumn.contains(where: { piece.position.contains($0) })
             if isPieceOnFirstColumn {
@@ -51,7 +52,7 @@ struct TetrisModel: Equatable {
     }
     
     // Check if the dropping piece is on the right edge.
-    func isPieceOnRightEdge() -> Bool {
+    var isPieceOnRightEdge: Bool {
         if let lastColumn = columnsIndices.last {
             let isPieceOnLastColumn = lastColumn.contains(where: { piece.position.contains($0) })
             if isPieceOnLastColumn {
@@ -72,7 +73,7 @@ struct TetrisModel: Equatable {
     }
     
     // Check if the dropping piece is on the last row.
-    func isPrevisualisationPieceOnLastRow() -> Bool {
+    var isPrevisualisationPieceOnLastRow: Bool {
         if let lastRow = rowsIndices.last {
             if lastRow.contains(where: { previsualisationPiece.position.contains($0) }) {
                 return true
@@ -82,7 +83,7 @@ struct TetrisModel: Equatable {
     }
     
     // Check if the dropping piece is on the edges
-    func isOnEdges() -> Bool { isPieceOnLeftEdge() || isPieceOnRightEdge() || isPieceOnLastRow(piece: piece) }
+    var isOnEdges: Bool { isPieceOnLeftEdge || isPieceOnRightEdge || isPieceOnLastRow(piece: piece) }
     
     // Check if the dropping piece is colliding with the next bottom colored square on the board.
     func isPieceCollidingBottom(piece: Piece) -> Bool {
@@ -114,8 +115,16 @@ struct TetrisModel: Equatable {
     // Check if a row is full of colored squares
     func isRowFullColored(row: [Int]) -> Bool { row.allSatisfy({ squares[$0] != .clear }) }
     
+    // Check if the chrono is timed out.
+    var isTimedOut: Bool {
+        if let adventure = adventure {
+            return adventure.chrono?.minute == 0 && adventure.chrono?.second == 0
+        }
+        return false
+    }
+    
     // Check if one of the squares is beyond the top limit.
-    func isGameLost() -> Bool {
+    var isGameLost: Bool {
         let firstThreeRows = rowsIndices.prefix(3)
         for rowIndex in firstThreeRows {
             if rowIndex.contains(where: { squares[$0] != .clear }) {
@@ -126,8 +135,9 @@ struct TetrisModel: Equatable {
     }
     
     func isGameWon(adventure: Adventure?) -> Bool {
-        if let adventure = adventure { return score.lines >= adventure.lineCondition }
-        return false
+        guard let adventure = adventure else { return false }
+        guard let lineCondition = adventure.lineCondition else { return false }
+        return score.lines >= lineCondition
     }
 }
 

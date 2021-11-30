@@ -116,8 +116,6 @@
 		2E0BDC9C27248D460063F0EB /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */,
-				2E9530482725677700A36684 /* PauseButtonView.swift */,
 				2E95305127257E0900A36684 /* Board */,
 			);
 			path = Game;
@@ -201,6 +199,8 @@
 		2E95305127257E0900A36684 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				2E95306527259CEF00A36684 /* HomeMenuButtonView.swift */,
+				2E9530482725677700A36684 /* PauseButtonView.swift */,
 				2EDBC5322720B357001D5992 /* TetrisBoardView.swift */,
 				2EAB667627292F3A005542B6 /* SquareView.swift */,
 				2E0BDC87272432380063F0EB /* PiecePreview.swift */,

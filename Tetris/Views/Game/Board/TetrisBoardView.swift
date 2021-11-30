@@ -12,7 +12,6 @@ struct TetrisBoardView: View {
     var height: CGFloat
     var tetris: TetrisModel
     var mode: TetrisMode?
-    var chrono: ChronoModel
     @Binding var isShowing: Bool
     var body: some View {
         ZStack {
@@ -33,6 +32,6 @@ struct TetrisBoardView: View {
 
 struct TetrisBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        TetrisBoardView(width: 40, height: 100, tetris: TetrisModel.byDefault, mode: TetrisMode.classic, chrono: ChronoModel(minute: 3, second: 0), isShowing: .constant(false))
+        TetrisBoardView(width: 40, height: 100, tetris: TetrisModel.byDefault, mode: TetrisMode.classic, isShowing: .constant(false))
     }
 }

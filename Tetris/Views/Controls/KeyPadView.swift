@@ -17,7 +17,6 @@ struct KeyPadView: View {
     var action: (() -> Void)?
     var image: String
     var height: CGFloat
-    var cancellables: Set<AnyCancellable>
     
     var gesture: some Gesture {
         DragGesture(minimumDistance: 0)
@@ -33,7 +32,6 @@ struct KeyPadView: View {
                 .frame(maxWidth: .infinity, maxHeight: height)
                 .background(Color.leadBlack.shadow(color: .white, radius: 0, x: 3, y: 3))
                 .padding(.horizontal, 5)
-                .disabled(cancellables.isEmpty && action == nil)
                 .gesture(gesture)
                 .simultaneousGesture(
                     TapGesture()
@@ -65,6 +63,6 @@ struct KeyPadView: View {
 
 struct KeyPadView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyPadView(image: "heart", height: 100, cancellables: [])
+        KeyPadView(image: "heart", height: 100)
     }
 }

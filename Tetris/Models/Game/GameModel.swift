@@ -9,6 +9,6 @@ import Foundation
 
 struct GameModel {
     var tetris: TetrisModel
-    var mode: TetrisMode?
+    var adventure: Adventure?
     var highscores: [HighscoreModel]
 }

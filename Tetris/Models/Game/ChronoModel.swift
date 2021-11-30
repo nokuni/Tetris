@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChronoModel {
+struct ChronoModel: Hashable, Equatable {
     var minute: Double
     var second: Double
 }

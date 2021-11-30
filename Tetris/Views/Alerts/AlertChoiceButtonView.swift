@@ -10,14 +10,17 @@ import SwiftUI
 struct AlertChoiceButtonView: View {
     var text: String
     var backgroundColor: Color
+    var tetris: TetrisModel
     var action: (() -> Void)?
     var secondAction: (() -> Void)?
     var thirdAction: (() -> Void)?
+    var fourthAction: ((Adventure) -> Void)?
     var body: some View {
         Button(action: {
             action?()
             secondAction?()
             thirdAction?()
+            if let adventure = tetris.adventure { fourthAction?(adventure) }
         }) {
             Text(text)
                 .foregroundColor(.theme.background)
@@ -30,6 +33,6 @@ struct AlertChoiceButtonView: View {
 
 struct AlertChoiceButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertChoiceButtonView(text: "CONTINUE", backgroundColor: .blue)
+        AlertChoiceButtonView(text: "CONTINUE", backgroundColor: .blue, tetris: TetrisModel.byDefault)
     }
 }

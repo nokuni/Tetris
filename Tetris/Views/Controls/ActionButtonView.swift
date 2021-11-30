@@ -11,7 +11,6 @@ import Combine
 struct ActionButtonView: View {
     var image: String
     var action: (() -> Void)?
-    var cancellables: Set<AnyCancellable>
     var body: some View {
         Button(action: {
             action?()
@@ -26,12 +25,11 @@ struct ActionButtonView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .disabled(cancellables.isEmpty)
     }
 }
 
 struct ActionButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ActionButtonView(image: "heart.fill", cancellables: [])
+        ActionButtonView(image: "heart.fill")
     }
 }

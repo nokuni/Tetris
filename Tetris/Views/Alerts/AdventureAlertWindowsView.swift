@@ -9,11 +9,11 @@ import SwiftUI
 
 struct AdventureAlertWindowsView: View {
     @Binding var isPresenting: Bool
-    var adventure: Adventure?
-    var startCountdownTimer: (() -> Void)?
+    var tetris: TetrisModel
+    var resumeCountdown: (() -> Void)?
     var dismissAlert: (() -> Void)?
     var body: some View {
-        if let adventure = adventure {
+        if let adventure = tetris.adventure {
             ZStack {
                 Rectangle()
                     .foregroundColor(
@@ -23,8 +23,12 @@ struct AdventureAlertWindowsView: View {
                     .shadow(color: .black, radius: 0, x: 3, y: 3)
                 VStack(spacing: 20) {
                     Text(adventure.message)
-                    Text("Win condition: \(adventure.lineCondition) lines")
-                    AlertChoiceButtonView(text: "Start", backgroundColor: .black, action: startCountdownTimer, secondAction: dismissAlert)
+                    if let lineCondition = adventure.lineCondition {
+                        Text("Win condition: \(lineCondition) lines")
+                    } else {
+                        Text("No win condition.")
+                    }
+                    AlertChoiceButtonView(text: "Start", backgroundColor: .black, tetris: tetris, action: resumeCountdown, secondAction: dismissAlert)
                 }
                 .font(.system(size: 20, weight: .heavy, design: .rounded))
                 .foregroundColor(.theme.accent)
@@ -37,6 +41,6 @@ struct AdventureAlertWindowsView: View {
 
 struct AdventureAlertWindowsView_Previews: PreviewProvider {
     static var previews: some View {
-        AdventureAlertWindowsView(isPresenting: .constant(false), adventure: Adventure(image: "slowmo", title: "New Dimension", message: "The gravity is different here, be careful.", lineCondition: 20, mode: .space))
+        AdventureAlertWindowsView(isPresenting: .constant(false), tetris: TetrisModel.byDefault)
     }
 }

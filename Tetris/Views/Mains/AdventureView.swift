@@ -12,14 +12,13 @@ struct AdventureView: View {
     var body: some View {
         ScrollView {
             VStack {
-                ForEach(Adventure.adventures, id: \.self) { adventure in
+                ForEach(Adventure.specials, id: \.self) { adventure in
                     NavigationLink(destination: GameView()) {
                         AdventureMenuButtonView(adventure: adventure)
                     }
                     .simultaneousGesture(
                         TapGesture().onEnded { _ in
-                            vm.setTetrisMode(mode: adventure.mode)
-                            vm.setAdventure(adventure: adventure)
+                            vm.startNewGame(adventure: adventure)
                         }
                     )
                 }

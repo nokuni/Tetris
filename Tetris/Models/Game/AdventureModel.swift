@@ -11,12 +11,15 @@ struct Adventure: Hashable {
     var image: String
     var title: String
     var message: String
-    var lineCondition: Int
+    var lineCondition: Int?
     var mode: TetrisMode
+    var chrono: ChronoModel?
 }
 
 extension Adventure {
-    static let newDimension = Adventure(image: "slowmo", title: "New Dimension", message: "The gravity is different here, be careful.", lineCondition: 5, mode: .space)
+    static let classic = Adventure(image: "cube.fill", title: "Classic", message: "The time is limited.", lineCondition: nil, mode: .classic)
+    static let marathon = Adventure(image: "infinity", title: "Marathon", message: "There is nothing to limit you.", lineCondition: nil, mode: .marathon)
+    static let newDimension = Adventure(image: "cube.transparent", title: "New Dimension", message: "The gravity is different here, be careful.", lineCondition: 5, mode: .space)
     
-    static let adventures = [newDimension]
+    static let specials = [newDimension]
 }

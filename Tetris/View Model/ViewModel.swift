@@ -11,167 +11,106 @@ import SwiftUI
 
 final class TetrisViewModel: ObservableObject {
     @Published private(set) var tetris = TetrisModel.byDefault
-    @Published private(set) var tetrisMode: TetrisMode? = nil
-    @Published private(set) var adventure: Adventure? = nil
-    
     @Published private(set) var highscores: [HighscoreModel] = [].sorted(by: { $0.score.points > $1.score.points })
+    
+    var gameTimer: Timer?
+    var chronoTimer: Timer?
+    var countdownTimer: Timer?
     
     @Published var isAlertShowing = false
     @Published var isAdventureAlertShowing = false
     @Published var isAnimatingBackground = false
     @Published var isAnimatingText = false
     
-    @Published private(set) var chrono: ChronoModel = ChronoModel(minute: 3, second: 0)
     @Published private(set) var countdown = 3
-    
-    @Published private(set) var gameCancellables = Set<AnyCancellable>()
-    @Published private(set) var chronoCancellables = Set<AnyCancellable>()
-    @Published private(set) var countdownCancellables = Set<AnyCancellable>()
     
     // MARK: - Board Timer
     
-    // Start a timer for the board.
-    func startTimer() {
-        Timer
-            .publish(every: tetris.score.speed, on: .main, in: .common)
-            .autoconnect()
-            .sink { _ in
-                self.gameOnGoing
-            }
-            .store(in: &gameCancellables)
+    func resumeGame() {
+        gameTimer?.invalidate()
+        gameTimer = Timer.scheduledTimer(withTimeInterval: tetris.score.speed, repeats: true, block: gameOnGoing)
     }
-    
-    // Manage all the behaviors the board.
-    var gameOnGoing: Void {
+    func pauseGame() { gameTimer?.invalidate() }
+    func gameOnGoing(timer: Timer) {
         if !tetris.isPieceOnLastRow(piece: tetris.piece) && !tetris.isPieceCollidingBottom(piece: tetris.piece) {
             movePieceDown()
         } else {
-            createPieceOnBoard()
+            drawPieceOnBoard()
             checkFullColoredRows()
             generateRandomNewPiece()
             generateNextRandomNewPiece()
             getPrevisualisationPiece()
-            if tetris.isGameLost() { endGame() }
-            if tetris.isGameWon(adventure: adventure) { endGame() }
+            if tetris.isGameLost { endGame() }
+            if tetris.isGameWon(adventure: tetris.adventure) { endGame() }
         }
-    }
-    
-    // Cancel & reset the board timer.
-    func resetTimer() {
-        gameCancellables.forEach { $0.cancel() }
-        gameCancellables.removeAll()
     }
     
     // MARK: - Chrono Timer
     
-    // Start a timer for the game chrono.
-    func startChronoTimer() {
-        Timer
-            .publish(every: 1, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                guard let self = self else { return }
-                self.chronoOnGoing()
-            }
-            .store(in: &chronoCancellables)
-    }
-    
     // Chrono
-    func chronoOnGoing() {
+    func resumeChrono() {
+        chronoTimer?.invalidate()
+        chronoTimer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: chronoOnGoing)
+    }
+    func pauseChrono() { chronoTimer?.invalidate() }
+    func chronoOnGoing(timer: Timer) {
+        guard let adventure = tetris.adventure else { return }
+        guard let chrono = adventure.chrono else { return }
         switch true {
         case chrono.second > 0:
-            chrono.second -= 1
+            tetris.adventure?.chrono?.second -= 1
         case chrono.minute > 0:
-            chrono.minute -= 1
-            chrono.second += 59
+            tetris.adventure?.chrono?.minute -= 1
+            tetris.adventure?.chrono?.second += 59
         default:
             endGame()
         }
     }
     
-    // Cancel & reset the chrono timer.
-    func resetChronoTimer() {
-        chronoCancellables.forEach { $0.cancel() }
-        chronoCancellables.removeAll()
-    }
-    
-    // Check if the chrono is timed out.
-    func isTimedOut() -> Bool { chrono.minute == 0 && chrono.second == 0 }
-    
     // MARK: - Countdown Timer
     
-    // Start a timer for the game chrono.
-    func startCountdownTimer() {
-        Timer
-            .publish(every: 1, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                guard let self = self else { return }
-                self.countdownOnGoing()
-            }
-            .store(in: &countdownCancellables)
+    func resumeCountdown() {
+        countdownTimer?.invalidate()
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: countdownOnGoing)
     }
-    
-    // Countdown running logic
-    func countdownOnGoing() {
+    func pauseCountdown() { countdownTimer?.invalidate() }
+    func countdownOnGoing(timer: Timer) {
+        guard let adventure = tetris.adventure else { return }
         if countdown > 0 { countdown -= 1 } else {
             countdown -= 1
-            resetCountdownTimer()
-            startTimer()
-            if tetrisMode == .classic { startChronoTimer() }
+            pauseCountdown()
+            resumeGame()
+            resumeChrono()
+            if adventure.mode == .classic { resumeChrono() }
         }
-    }
-    
-    // Cancel & reset the countdown timer.
-    func resetCountdownTimer() {
-        countdownCancellables.forEach { $0.cancel() }
-        countdownCancellables.removeAll()
     }
     
     // MARK: - Game Conditions
     
     // Create a new game.
-    func startNewGame() {
-        resetAllTimers()
-        resetGame()
-        getPrevisualisationPiece()
-    }
-    
-    // Reset the game
-    func resetGame() {
+    func startNewGame(adventure: Adventure) {
+        print("You started a new game!")
         tetris = TetrisModel.byDefault
+        tetris.adventure = adventure
+        isAdventureAlertShowing.toggle()
         tetris.piece = Piece.pieces.randomElement()!
         tetris.nextPiece = Piece.pieces.randomElement()!
         tetris.previsualisationPiece = tetris.piece
-        chrono = ChronoModel(minute: 3, second: 0)
+        if adventure.mode == .classic { tetris.adventure?.chrono = ChronoModel(minute: 3, second: 0) }
         countdown = 3
-    }
-    
-    // Reset the game, chrono and countdown timer.
-    func resetAllTimers() {
-        resetTimer()
-        resetChronoTimer()
-        resetCountdownTimer()
-    }
-    
-    // Set a tetris mode
-    func setTetrisMode(mode: TetrisMode) { tetrisMode = mode }
-    
-    // Set an adventure
-    func setAdventure(adventure: Adventure) {
-        self.adventure = adventure
-        isAdventureAlertShowing.toggle()
+        getPrevisualisationPiece()
     }
     
     // End Game
     func endGame() {
-        highscores.append(HighscoreModel(mode: tetrisMode ?? .classic, score: tetris.score))
-        resetAllTimers()
+        pauseGame()
+        pauseChrono()
+        highscores.append(HighscoreModel(mode: tetris.adventure!.mode, score: tetris.score))
         isAlertShowing.toggle()
     }
     
-    // Transform the dropping piece into colored squares on the board.
-    func createPieceOnBoard() {
+    // Draw the dropping piece into colored squares on the board.
+    func drawPieceOnBoard() {
         tetris.piece.position.forEach { tetris.squares[$0] = tetris.piece.color }
     }
     
@@ -253,7 +192,7 @@ final class TetrisViewModel: ObservableObject {
     func movePieceRight() {
         let nextPositon = tetris.piece.position.map { $0 + 1 }
         guard tetris.boardIndices.contains(where:  { nextPositon.contains($0 )}) else { return }
-        if !tetris.isPieceOnRightEdge() && !tetris.isPieceCollidingHorizontally(by: [-1]) {
+        if !tetris.isPieceOnRightEdge && !tetris.isPieceCollidingHorizontally(by: [-1]) {
             tetris.piece.position = nextPositon
             if !tetris.isPieceOnLastRow(piece: tetris.piece) { getPrevisualisationPiece() }
         }
@@ -263,7 +202,7 @@ final class TetrisViewModel: ObservableObject {
     func movePieceLeft() {
         let nextPositon = tetris.piece.position.map { $0 - 1 }
         guard tetris.boardIndices.contains(where:  { nextPositon.contains($0 )}) else { return }
-        if !tetris.isPieceOnLeftEdge() && !tetris.isPieceCollidingHorizontally(by: [1]) {
+        if !tetris.isPieceOnLeftEdge && !tetris.isPieceCollidingHorizontally(by: [1]) {
             tetris.piece.position = nextPositon
             if !tetris.isPieceOnLastRow(piece: tetris.piece) { getPrevisualisationPiece() }
         }
@@ -315,7 +254,7 @@ final class TetrisViewModel: ObservableObject {
                 if tetris.isRowFullColored(row: rowIndex) {
                     lineCleared += 1
                     clearLine(rowIndex: rowIndex)
-                    if tetrisMode != .space { bringDownBlocks() }
+                    if tetris.adventure?.mode != .space { bringDownBlocks() }
                     animateBackground()
                 }
             }

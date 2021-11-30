@@ -9,34 +9,25 @@ import SwiftUI
 
 struct CustomAlertView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var isAlertShowing: Bool
-    @Binding var isAdventureAlertShowing: Bool
-    var adventure: Adventure?
-    var score: Int
-    var isGameLost: Bool
-    var isTimedOut: Bool
-    var startTimer: (() -> Void)?
-    var startChronoTimer: (() -> Void)?
-    var startCountdownTimer: (() -> Void)?
-    var newGame: (() -> Void)?
+    @ObservedObject var vm: TetrisViewModel
     var body: some View {
         ZStack {
-            if isAlertShowing {
+            if vm.isAlertShowing {
                 ZStack {
                     Color.leadBlack.opacity(0.7).ignoresSafeArea()
-                    AlertWindowView(isPresenting: $isAlertShowing, score: score, isGameLost: isGameLost, isTimedOut: isTimedOut, dismissAlert: dismissAlert, goBack: goBack, startTimer: startTimer, startChronoTimer: startChronoTimer, newGame: newGame)
+                    AlertWindowView(isPresenting: $vm.isAlertShowing, tetris: vm.tetris, dismissAlert: dismissAlert, goBack: goBack, resumeGame: vm.resumeGame, resumeChrono: vm.resumeChrono, startNewGame: vm.startNewGame)
                 }
             }
-            if isAdventureAlertShowing {
-                AdventureAlertWindowsView(isPresenting: $isAdventureAlertShowing, adventure: adventure, startCountdownTimer: startCountdownTimer, dismissAlert: dismissAdventureAlert)
+            if vm.isAdventureAlertShowing {
+                AdventureAlertWindowsView(isPresenting: $vm.isAdventureAlertShowing, tetris: vm.tetris, resumeCountdown: vm.resumeCountdown, dismissAlert: dismissAdventureAlert)
             }
         }
     }
     func dismissAlert() {
-        isAlertShowing.toggle()
+        vm.isAlertShowing.toggle()
     }
     func dismissAdventureAlert() {
-        isAdventureAlertShowing.toggle()
+        vm.isAdventureAlertShowing.toggle()
     }
     func goBack() {
         presentationMode.wrappedValue.dismiss()
@@ -45,6 +36,6 @@ struct CustomAlertView: View {
 
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAlertView(isAlertShowing: .constant(false), isAdventureAlertShowing: .constant(false), adventure: Adventure(image: "slowmo", title: "New Dimension", message: "The gravity is different here, be careful.", lineCondition: 20, mode: .space), score: 0, isGameLost: false, isTimedOut: false)
+        CustomAlertView(vm: TetrisViewModel())
     }
 }
