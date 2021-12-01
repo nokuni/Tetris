@@ -46,17 +46,10 @@ extension GameView {
     }
     var Board: some View {
         GeometryReader { geo in
-            VStack(spacing: 10) {
+            VStack {
                 InfoGame
                 TetrisBoardView(width: geo.size.width * 0.1, height: geo.size.width, tetris: vm.tetris, isShowing: $vm.isAnimatingText)
-                    .overlay(
-                        HStack {
-                            TimerTextView(chrono: vm.tetris.adventure?.chrono)
-                            PiecePreview(piece: vm.tetris.nextPiece, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
-                            PauseButtonView(isPresenting: $vm.isAlertShowing, cancelTimer: vm.pauseGame, cancelChronoTimer: vm.pauseChrono, width: geo.size.width * 0.1, height: geo.size.width * 0.1)
-                        }
-                            .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.7, alignment: .top)
-                    )
+                    .overlay(BoardOverlayView(vm: vm, width: geo.size.width, height: geo.size.height))
                 ControlsView(vm: vm, width: geo.size.width, height: geo.size.height * 0.15)
             }
         }
@@ -66,6 +59,6 @@ extension GameView {
         CustomAlertView(vm: vm)
     }
     var Countdown: some View {
-        CountdownView(countdown: vm.countdown)
+        CountdownView(countdown: vm.tetris.countdown)
     }
 }

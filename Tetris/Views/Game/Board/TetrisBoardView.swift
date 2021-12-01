@@ -19,12 +19,12 @@ struct TetrisBoardView: View {
                 ForEach(Array(tetris.squares.indices).separate(into: 10), id: \.self) { row in
                     HStack(spacing: 0) {
                         ForEach(row, id: \.self) { index in
-                            SquareView(index: index, tetris: tetris, width: width * 0.8, height: width * 0.8)
+                            SquareView(index: index, tetris: tetris, width: width, height: width)
                         }
                     }
                 }
             }
-            TextAnimationView(isShowing: $isShowing)
+            TextAnimationView(isAnimating: $isShowing)
         }
         .background(Color.white)
     }

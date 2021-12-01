@@ -19,7 +19,9 @@ struct Adventure: Hashable {
 extension Adventure {
     static let classic = Adventure(image: "cube.fill", title: "Classic", message: "The time is limited.", lineCondition: nil, mode: .classic)
     static let marathon = Adventure(image: "infinity", title: "Marathon", message: "There is nothing to limit you.", lineCondition: nil, mode: .marathon)
-    static let newDimension = Adventure(image: "cube.transparent", title: "New Dimension", message: "The gravity is different here, be careful.", lineCondition: 5, mode: .space)
+    static let zeroGravity = Adventure(image: "cube.transparent", title: "Zero gravity", message: "The blocks don't fall after clearing a line.", lineCondition: 5, mode: .space)
+    static let intruder = Adventure(image: "cube.transparent", title: "The Intruder", message: "Sometimes, an unknown block will appear", lineCondition: 5, mode: .space)
     
-    static let specials = [newDimension]
+    static let mains = [classic, marathon]
+    static let specials = [zeroGravity]
 }

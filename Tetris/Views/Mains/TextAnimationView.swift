@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct TextAnimationView: View {
-    @Binding var isShowing: Bool
+    @Binding var isAnimating: Bool
     var body: some View {
         Text("Fantastic")
             .foregroundColor(.black)
             .font(.system(size: 50, weight: .bold, design: .default))
-            .opacity(isShowing ? 1 : 0)
+            .opacity(isAnimating ? 1 : 0)
     }
 }
 
 struct TextAnimationView_Previews: PreviewProvider {
     static var previews: some View {
-        TextAnimationView(isShowing: .constant(false))
+        TextAnimationView(isAnimating: .constant(false))
     }
 }

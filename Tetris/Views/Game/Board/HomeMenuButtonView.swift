@@ -21,10 +21,7 @@ struct HomeMenuButtonView: View {
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading)
-        .background(
-            color
-                .shadow(color: .black, radius: 0, x: 4, y: 4)
-        )
+        .background(color.shadow(color: .black, radius: 0, x: 4, y: 4))
         .padding(.horizontal)
     }
 }

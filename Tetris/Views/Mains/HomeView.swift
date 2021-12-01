@@ -13,28 +13,10 @@ struct HomeView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 25) {
-                    NavigationLink(destination: AdventureView(vm: vm)) {
-                        HomeMenuButtonView(image: "book.fill", text: "Adventure", color: .aliceBlue)
-                    }
-                    NavigationLink(destination: GameView()) {
-                        HomeMenuButtonView(image: Adventure.classic.image, text: Adventure.classic.title, color: .powderBlue)
-                    }
-                    .simultaneousGesture(
-                        TapGesture().onEnded { _ in
-                            vm.startNewGame(adventure: .classic)
-                        }
-                    )
-                    NavigationLink(destination: GameView()) {
-                        HomeMenuButtonView(image: Adventure.marathon.image, text: Adventure.marathon.title, color: .coral)
-                    }
-                    .simultaneousGesture(
-                        TapGesture().onEnded { _ in
-                            vm.startNewGame(adventure: .marathon)
-                        }
-                    )
-                    NavigationLink(destination: HighScoreView(vm: vm)) {
-                        HomeMenuButtonView(image: "crown.fill", text: "Highscores", color: .khaki)
-                    }
+                    AdventureButton
+                    ClassicButton
+                    MarathonButton
+                    HighscoresButton
                 }
             }
             .navigationTitle("LineBlock")
@@ -48,5 +30,38 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
             .environmentObject(TetrisViewModel())
             .preferredColorScheme(.light)
+    }
+}
+
+extension HomeView {
+    var AdventureButton: some View {
+        NavigationLink(destination: AdventureView(vm: vm)) {
+            HomeMenuButtonView(image: "book.fill", text: "Adventure", color: .aliceBlue)
+        }
+    }
+    var ClassicButton: some View {
+        NavigationLink(destination: GameView()) {
+            HomeMenuButtonView(image: Adventure.classic.image, text: Adventure.classic.title, color: .powderBlue)
+        }
+        .simultaneousGesture(
+            TapGesture().onEnded { _ in
+                vm.startNewGame(adventure: .classic)
+            }
+        )
+    }
+    var MarathonButton: some View {
+        NavigationLink(destination: GameView()) {
+            HomeMenuButtonView(image: Adventure.marathon.image, text: Adventure.marathon.title, color: .coral)
+        }
+        .simultaneousGesture(
+            TapGesture().onEnded { _ in
+                vm.startNewGame(adventure: .marathon)
+            }
+        )
+    }
+    var HighscoresButton: some View {
+        NavigationLink(destination: HighScoreView(vm: vm)) {
+            HomeMenuButtonView(image: "crown.fill", text: "Highscores", color: .khaki)
+        }
     }
 }

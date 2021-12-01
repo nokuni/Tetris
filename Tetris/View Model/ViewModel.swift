@@ -13,16 +13,14 @@ final class TetrisViewModel: ObservableObject {
     @Published private(set) var tetris = TetrisModel.byDefault
     @Published private(set) var highscores: [HighscoreModel] = [].sorted(by: { $0.score.points > $1.score.points })
     
-    var gameTimer: Timer?
-    var chronoTimer: Timer?
-    var countdownTimer: Timer?
-    
     @Published var isAlertShowing = false
     @Published var isAdventureAlertShowing = false
     @Published var isAnimatingBackground = false
     @Published var isAnimatingText = false
     
-    @Published private(set) var countdown = 3
+    var gameTimer: Timer?
+    var chronoTimer: Timer?
+    var countdownTimer: Timer?
     
     // MARK: - Board Timer
     
@@ -50,7 +48,7 @@ final class TetrisViewModel: ObservableObject {
     // Chrono
     func resumeChrono() {
         chronoTimer?.invalidate()
-        chronoTimer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: chronoOnGoing)
+        chronoTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: chronoOnGoing)
     }
     func pauseChrono() { chronoTimer?.invalidate() }
     func chronoOnGoing(timer: Timer) {
@@ -76,8 +74,8 @@ final class TetrisViewModel: ObservableObject {
     func pauseCountdown() { countdownTimer?.invalidate() }
     func countdownOnGoing(timer: Timer) {
         guard let adventure = tetris.adventure else { return }
-        if countdown > 0 { countdown -= 1 } else {
-            countdown -= 1
+        if tetris.countdown > 0 { tetris.countdown -= 1 } else {
+            tetris.countdown -= 1
             pauseCountdown()
             resumeGame()
             resumeChrono()
@@ -97,7 +95,7 @@ final class TetrisViewModel: ObservableObject {
         tetris.nextPiece = Piece.pieces.randomElement()!
         tetris.previsualisationPiece = tetris.piece
         if adventure.mode == .classic { tetris.adventure?.chrono = ChronoModel(minute: 3, second: 0) }
-        countdown = 3
+        tetris.countdown = 3
         getPrevisualisationPiece()
     }
     

@@ -12,8 +12,9 @@ struct TetrisModel: Equatable {
     var adventure: Adventure?
     var squares: [Color]
     var piece: Piece = Piece.pieces.randomElement()!
-    var nextPiece = Piece.pieces.randomElement()!
-    var previsualisationPiece = Piece.oBlock
+    var nextPiece: Piece = Piece.pieces.randomElement()!
+    var previsualisationPiece: Piece = Piece.oBlock
+    var countdown: Int = 3
     
     // Columns indices of the board
     var columnsIndices: [[Int]] {
