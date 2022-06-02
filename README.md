@@ -1,8 +1,12 @@
 # Tetris
 Tetris game in SwiftUI
 
-<img width="480" alt="Screenshot 2021-10-30 at 08 57 54" src="https://user-images.githubusercontent.com/62436303/139523760-24d1d659-73c4-406b-9ffd-40329675394c.png">
+![IMG_0434](https://user-images.githubusercontent.com/62436303/171605517-9790579a-7f14-4c74-8685-d846ce8e0dbe.PNG)
 
-<img width="459" alt="Screenshot 2021-10-30 at 08 58 37" src="https://user-images.githubusercontent.com/62436303/139523764-963689a7-c7f9-4b77-b408-35421b80a998.png">
+![IMG_0433](https://user-images.githubusercontent.com/62436303/171605523-2daeb1e0-0b2c-44ab-a884-eeefe8d7faa9.PNG)
 
-<img width="458" alt="Screenshot 2021-10-30 at 08 59 19" src="https://user-images.githubusercontent.com/62436303/139523770-7f5794d2-f304-4eb7-a62d-a402f4ca4059.png">
+![IMG_0432](https://user-images.githubusercontent.com/62436303/171605529-bc6e03b0-12f8-4bc6-bffb-78945440b943.PNG)
+
+![IMG_0431](https://user-images.githubusercontent.com/62436303/171605533-e5df7e33-c6b3-4728-960f-f49ceacd8d7b.PNG)
+
+![IMG_0435](https://user-images.githubusercontent.com/62436303/171605507-47d32b63-0340-4cd3-8a70-95f61ebac7c7.PNG)
